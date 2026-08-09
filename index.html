@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARENA · Antrenament pentru agenți imobiliari</title>
+<meta name="description" content="ARENA este platforma de antrenament pentru agenți imobiliari: exersezi conversații reale cu clienți, de la primul apel până la semnătura pe exclusivitate. Coach în timp real, personaje realiste, feedback după fiecare întâlnire." />
+<meta property="og:title" content="ARENA · Antrenament pentru agenți imobiliari" />
+<meta property="og:description" content="Exersezi conversații reale cu clienți — de la primul apel până la semnătura pe exclusivitate. Coach în timp real, feedback la final." />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --gold-1:#FBE9B0; --gold-2:#E8CE7A; --gold-3:#C9A227; --gold-4:#A6841C;
+    --ink:#0e1420; --card:#141c2e; --card-2:#182135;
+    --border:#2b3550; --pearl:#aeb7cc;
+    --text:#e8ecf6; --muted:#a7b0c6;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+    line-height:1.6;
+    background:#0e1626;
+    min-height:100vh;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  a{color:inherit;text-decoration:none}
+
+  /* Logo */
+  .logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.12em;
+    display:inline-flex;align-items:center;gap:.28em;line-height:1}
+  .logo .bar{color:var(--gold-3);font-weight:400;opacity:.85}
+  .logo .word{
+    background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 42%,var(--gold-3) 72%,var(--gold-4) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);
+    background:linear-gradient(180deg,rgba(14,20,32,.55),rgba(14,20,32,0));
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;max-width:var(--maxw);margin:0 auto}
+  .nav-in .logo{font-size:20px}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:14px;letter-spacing:.02em}
+  .nav-links a:hover{color:var(--text)}
+  .btn{
+    display:inline-block;font-weight:700;border-radius:999px;padding:12px 22px;font-size:14px;letter-spacing:.03em;
+    background:linear-gradient(180deg,var(--gold-1),var(--gold-3));color:#2a2205;
+    box-shadow:0 8px 24px rgba(201,162,39,.32);border:1px solid rgba(255,255,255,.25);transition:transform .12s ease,box-shadow .12s ease}
+  .btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(201,162,39,.42)}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--pearl)}
+
+  /* Hero */
+  header.hero{padding:80px 0 90px;text-align:center;position:relative;
+    background:
+      radial-gradient(760px 560px at 86% 0%, rgba(158,96,236,.40), transparent 62%),
+      radial-gradient(760px 620px at 6% 30%, rgba(236,92,180,.30), transparent 60%),
+      radial-gradient(700px 520px at 50% -12%, rgba(170,195,255,.30), transparent 60%),
+      linear-gradient(180deg,#4c5cd6 0%,#33499c 34%,#26406c 66%,#141f38 100%);
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  header.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;
+    background:linear-gradient(180deg,transparent,#0e1626);pointer-events:none}
+  header.hero > .wrap{position:relative;z-index:1}
+  .eyebrow{color:var(--gold-2);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:26px}
+  .hero .logo{font-size:64px;margin-bottom:8px}
+  .hero .sub-brand{color:var(--muted);letter-spacing:.42em;font-size:12px;text-transform:uppercase;margin-bottom:30px}
+  h1{font-size:clamp(28px,4.4vw,46px);line-height:1.15;font-weight:800;max-width:16ch;margin:0 auto 18px;
+    background:linear-gradient(180deg,#ffffff,#c9d3ea);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--muted);font-size:clamp(16px,2vw,19px);max-width:56ch;margin:0 auto 34px}
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* Sections */
+  section{padding:64px 0}
+  .section-head{text-align:center;max-width:60ch;margin:0 auto 44px}
+  .kicker{color:var(--gold-2);font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+  h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.2;margin-bottom:14px}
+  .section-head p{color:var(--muted);font-size:17px}
+
+  /* Cards */
+  .card{
+    background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 70%,var(--ink) 100%);
+    border:1px solid var(--border);border-radius:20px;padding:30px;
+    box-shadow:0 30px 70px rgba(12,18,40,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+  .level .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);margin-bottom:12px}
+  .level h3{font-family:Georgia,serif;font-size:26px;margin-bottom:10px}
+  .level p{color:var(--muted)}
+  .level .meta{margin-top:18px;color:var(--pearl);font-size:14px;border-top:1px solid var(--border);padding-top:16px}
+
+  /* Steps */
+  .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{position:relative;padding-top:14px}
+  .step .n{font-family:Georgia,serif;font-size:15px;font-weight:700;color:#2a2205;
+    width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg,var(--gold-1),var(--gold-3));margin-bottom:14px}
+  .step h4{font-size:17px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  /* Feature grid */
+  .feat{display:flex;gap:14px;align-items:flex-start}
+  .feat .dot{flex:0 0 auto;width:10px;height:10px;border-radius:50%;margin-top:8px;
+    background:linear-gradient(180deg,var(--gold-1),var(--gold-3));box-shadow:0 0 12px rgba(201,162,39,.5)}
+  .feat h4{font-size:16px;margin-bottom:4px}
+  .feat p{color:var(--muted);font-size:14.5px}
+
+  /* CTA band */
+  .band{text-align:center;padding:60px 30px;border-radius:24px;
+    background:linear-gradient(180deg,rgba(30,40,70,.7),rgba(16,22,38,.7));
+    border:1px solid var(--border);box-shadow:0 30px 80px rgba(12,18,40,.45)}
+  .band h2{margin-bottom:10px}
+  .band p{color:var(--muted);margin-bottom:26px}
+
+  footer{padding:50px 0 40px;border-top:1px solid rgba(255,255,255,.06);margin-top:40px;color:var(--muted);font-size:14px}
+  .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+  .foot-links{display:flex;gap:20px}
+  .foot-links a:hover{color:var(--text)}
+
+  @media(max-width:820px){
+    .nav-links{display:none}
+    .grid-2,.grid-3,.steps{grid-template-columns:1fr}
+    .hero .logo{font-size:48px}
+    header.hero{padding:56px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+    <div class="nav-links">
+      <a href="#ce-este">Ce este</a>
+      <a href="#niveluri">Niveluri</a>
+      <a href="#cum-functioneaza">Cum funcționează</a>
+      <a href="#pentru-cine">Pentru cine</a>
+    </div>
+    <a href="#" class="btn" id="app-cta">Intră în arenă</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Platformă de antrenament pentru agenți imobiliari</div>
+    <div class="logo" style="font-size:64px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+    <div class="sub-brand">B-North</div>
+    <h1>Antrenamentul care transformă semnătura în reflex.</h1>
+    <p class="lead">Exersezi conversații reale cu clienți — de la primul apel telefonic până la semnătura pe exclusivitate. Fără riscuri, fără clienți pierduți din cauza greșelilor de începător.</p>
+    <div class="cta-row">
+      <a href="#" class="btn app-link">Intră în arenă</a>
+      <a href="#cum-functioneaza" class="btn ghost">Vezi cum funcționează</a>
+    </div>
+  </div>
+</header>
+
+<section id="ce-este">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Ce este ARENA</div>
+      <h2>Un simulator în care greșelile nu costă clienți</h2>
+      <p>ARENA e locul în care porți conversații reale cu clienți simulați, atât de aproape de realitate încât, când ajungi la un client adevărat, ai mai fost acolo de zeci de ori. Fiecare replică, fiecare obiecție, fiecare tur al casei — exersate până devin naturale.</p>
+    </div>
+  </div>
+</section>
+
+<section id="niveluri" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="card level">
+        <div class="tag">Nivel 1 · Deschis</div>
+        <h3>Apelul telefonic</h3>
+        <p>Prinde întâlnirea la telefon. 15 clienți, de la cel mai ușor până la coșmar. Înveți să treci de „nu mă interesează" și să obții întâlnirea.</p>
+        <div class="meta">15 clienți &nbsp;·&nbsp; de la ușor la greu &nbsp;·&nbsp; diplomă la final</div>
+      </div>
+      <div class="card level">
+        <div class="tag">Nivel 2 · Deschis</div>
+        <h3>Întâlnirea față în față</h3>
+        <p>Turul casei, negocierea prețului, semnătura pe exclusivitate. 9 personaje, fiecare cu povestea și obiecțiile lui — de la familia care se mută, la pensionarul care ezită.</p>
+        <div class="meta">9 personaje &nbsp;·&nbsp; tur + preț + exclusivitate &nbsp;·&nbsp; verdict la final</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cum-functioneaza">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Cum funcționează</div>
+      <h2>Intri, vorbești, înveți din fiecare mișcare</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h4>Alegi clientul</h4><p>Fiecare personaj are o poveste, un motiv de vânzare și o personalitate diferită.</p></div>
+      <div class="step"><div class="n">2</div><h4>Porți conversația</h4><p>Vorbești liber, exact ca la o întâlnire reală. Clientul răspunde ca un om adevărat.</p></div>
+      <div class="step"><div class="n">3</div><h4>Coach-ul te ghidează</h4><p>Când nu știi ce să spui, mentorul îți dă direcția și replicile potrivite momentului.</p></div>
+      <div class="step"><div class="n">4</div><h4>Primești verdictul</h4><p>La final, o evaluare clară: ce ai făcut bine, ce pierzi bani și ce exersezi data viitoare.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pentru-cine" style="padding-top:0">
+  <div class="wrap">
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="font-family:Georgia,serif;font-size:24px;margin-bottom:10px">Pentru agenți la început de drum</h3>
+        <p style="color:var(--muted)">Înveți meseria fără să pierzi clienți reali din cauza unei greșeli de începător. Ajungi la prima întâlnire adevărată cu încredere, nu cu emoții.</p>
+      </div>
+      <div class="card">
+        <h3 style="font-family:Georgia,serif;font-size:24px;margin-bottom:10px">Pentru agenții și echipe</h3>
+        <p style="color:var(--muted)">Antrenezi tot biroul după același standard. Vezi cine e pregătit pentru teren și transformi agenții noi în profesioniști mai repede.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="beneficii">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">De ce ARENA</div>
+      <h2>Antrenament serios, nu un curs teoretic</h2>
+    </div>
+    <div class="grid-3">
+      <div class="feat"><div class="dot"></div><div><h4>Coach în timp real</h4><p>Ghidare exact în momentul în care ai nevoie, nu după ce ai greșit.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Personaje realiste</h4><p>Clienți cu emoții, ezitări și obiecții ca în viața reală.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Feedback la final</h4><p>Un verdict onest după fiecare întâlnire, cu ce să îmbunătățești.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Progres măsurabil</h4><p>Vezi cum crești: autoritate, descoperire, preț, închidere.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>În limba română</h4><p>Conversații naturale, în limba în care lucrezi cu clienții tăi.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Pe orice device</h4><p>Te antrenezi de pe telefon sau laptop, oricând ai 10 minute.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="band">
+      <div class="kicker">Ești gata?</div>
+      <h2>Intră în arenă și antrenează-te</h2>
+      <p>Primul apel și prima întâlnire nu ar trebui să fie cu un client real.</p>
+      <a href="#" class="btn app-link">Intră în arenă</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year"></span> B-North. Toate drepturile rezervate.</div>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:contact@arenaforagents.com">contact@arenaforagents.com</a>
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  // Adresa aplicației. Acum trimite spre aplicația live; când setezi app.arenaforagents.com, schimbă aici.
+  var APP_URL = "https://arena-orpin-two.vercel.app";
+  document.querySelectorAll('.app-link, #app-cta').forEach(function(el){ el.setAttribute('href', APP_URL); });
+</script>
+</body>
+</html>
