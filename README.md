@@ -10,6 +10,7 @@ Site-ul de prezentare ARENA. Acum are **mai multe pagini**, fiecare cu conținut
 | `cum-functioneaza.html` | Cum funcționează (+ mockup-uri din aplicație) |
 | `pentru-cine.html` | Pentru cine |
 | `pentru-agentii.html` | Pentru agenții (panoul de manager) |
+| `etica-si-siguranta.html` | Etică și siguranță |
 | `contact.html` | Contact (+ întrebări frecvente) |
 | `style.css` | Design-ul comun (toate paginile) |
 | `app.js` | Anul din footer + linkul „Intră în arenă" |
