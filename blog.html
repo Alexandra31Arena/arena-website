@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · ARENA — Antrenament pentru agenți imobiliari</title>
+<meta name="description" content="Articole practice pentru agenți imobiliari: cum răspunzi la «e prea scump», cum obții exclusivitate, scriptul apelului, turul casei și cum îți justifici comisionul. De la echipa ARENA.">
+<meta property="og:title" content="Blog ARENA · Ghiduri practice pentru agenți imobiliari">
+<meta property="og:description" content="Obiecții, exclusivitate, scriptul apelului, turul casei, comision — explicate pe pași, cu exemple. Exersează-le apoi în ARENA.">
+<meta property="og:type" content="website">
+<style>
+/* ===== Stil de bază ARENA — inclus în pagină pentru portabilitate (identic cu style.css) ===== */
+:root{
+  --gold-1:#FBE9B0; --gold-2:#E8CE7A; --gold-3:#C9A227; --gold-4:#A6841C;
+  --ink:#0e1420; --card:#141c2e; --card-2:#182135;
+  --border:#2b3550; --pearl:#aeb7cc;
+  --text:#e8ecf6; --muted:#a7b0c6;
+  --green:#8fd6a0;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);line-height:1.6;background:#0e1626;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;width:100%}
+a{color:inherit;text-decoration:none}
+main{flex:1 0 auto}
+.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.12em;
+  display:inline-flex;align-items:center;gap:.28em;line-height:1}
+.logo .bar{color:var(--gold-3);font-weight:400;opacity:.85}
+.logo .word{background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 42%,var(--gold-3) 72%,var(--gold-4) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
+  background:linear-gradient(180deg,rgba(14,20,32,.78),rgba(14,20,32,.35));
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:var(--maxw);margin:0 auto}
+.nav-in .logo{font-size:20px}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--muted);font-size:14px;letter-spacing:.02em}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active{color:var(--gold-2)}
+.btn{display:inline-block;font-weight:700;border-radius:999px;padding:12px 22px;font-size:14px;letter-spacing:.03em;
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-3));color:#2a2205;
+  box-shadow:0 8px 24px rgba(201,162,39,.32);border:1px solid rgba(255,255,255,.25);
+  transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(201,162,39,.42)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
+.btn.ghost:hover{border-color:var(--pearl)}
+.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:10px;color:var(--text);
+  font-size:20px;padding:4px 12px;cursor:pointer}
+.page-hero{padding:66px 0 30px;text-align:center;position:relative;
+  background:radial-gradient(760px 460px at 84% -10%, rgba(158,96,236,.34), transparent 62%),
+    radial-gradient(680px 520px at 8% 10%, rgba(236,92,180,.24), transparent 60%),
+    linear-gradient(180deg,#26325e 0%,#1a2547 46%,#121c34 100%);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.page-hero .kicker{color:var(--gold-2);font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:14px}
+.page-hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.14;font-weight:800;max-width:20ch;margin:0 auto 14px;
+  background:linear-gradient(180deg,#ffffff,#c9d3ea);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.page-hero p.lead{color:var(--muted);font-size:clamp(16px,2vw,19px);max-width:60ch;margin:0 auto}
+section{padding:60px 0}
+.section-head{text-align:center;max-width:62ch;margin:0 auto 40px}
+.kicker{color:var(--gold-2);font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(23px,3.2vw,33px);font-weight:800;line-height:1.2;margin-bottom:14px}
+.section-head p{color:var(--muted);font-size:17px}
+.prose{max-width:70ch;margin:0 auto;color:var(--muted);font-size:17px}
+.prose p{margin-bottom:18px}
+.prose strong{color:var(--text)}
+.card{background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 70%,var(--ink) 100%);
+  border:1px solid var(--border);border-radius:20px;padding:28px;
+  box-shadow:0 30px 70px rgba(12,18,40,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{flex-shrink:0;padding:46px 0 40px;border-top:1px solid rgba(255,255,255,.06);margin-top:40px;color:var(--muted);font-size:14px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot-nav a:hover{color:var(--text)}
+.foot-social{display:flex;gap:16px}
+.foot-social a:hover{color:var(--gold-2)}
+@media(max-width:1100px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+    background:#0e1626;border-bottom:1px solid var(--border);padding:8px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 22px}
+  .nav-toggle{display:inline-block}
+}
+
+/* ---- Blog-specific ---- */
+.blog-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
+.post-card{display:flex;flex-direction:column;height:100%;
+  background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 70%,var(--ink) 100%);
+  border:1px solid var(--border);border-radius:20px;padding:26px 26px 24px;
+  box-shadow:0 30px 70px rgba(12,18,40,.4),inset 0 1px 0 rgba(255,255,255,.05);
+  transition:transform .14s ease,border-color .14s ease}
+a.post-card:hover{transform:translateY(-3px);border-color:var(--pearl)}
+.post-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+.post-meta .num{width:26px;height:26px;border-radius:50%;display:inline-flex;
+  align-items:center;justify-content:center;font-family:Georgia,serif;font-weight:700;
+  color:#2a2205;background:linear-gradient(180deg,var(--gold-1),var(--gold-3));font-size:13px;letter-spacing:0}
+.post-card h3{font-family:Georgia,"Times New Roman",serif;font-size:22px;line-height:1.25;margin-bottom:10px;color:var(--text)}
+.post-card p{color:var(--muted);font-size:15.5px;flex:1 0 auto}
+.post-card .read{margin-top:16px;color:var(--gold-2);font-weight:700;font-size:14px;letter-spacing:.02em}
+.post-card.soon{opacity:.62}
+.badge-soon{margin-left:auto;font-size:11px;letter-spacing:.12em;color:var(--muted);
+  border:1px solid var(--border);border-radius:999px;padding:3px 10px;text-transform:uppercase}
+.blog-note{max-width:70ch;margin:0 auto 6px;text-align:center;color:var(--muted);font-size:16px}
+@media(max-width:760px){.blog-grid{grid-template-columns:1fr}}
+</style>
+<!-- Pe site, style.css real se încarcă la final și are prioritate (rămâne identic + preia update-uri). În preview/local, stilul de bază de mai sus asigură același aspect. -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Blog ARENA</div>
+      <h1>Meseria de agent, pe pași</h1>
+      <p class="lead">Obiecții, exclusivitate, scriptul apelului, turul casei, comision — explicate simplu, cu exemple pe care le poți folosi mâine. Aceleași situații pe care le exersezi în ARENA.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Articole</div>
+        <h2>Ce citești aici</h2>
+        <p>Publicăm un articol la 1–2 săptămâni. Fiecare pornește dintr-o situație reală din teren și se termină cu ce poți exersa în arenă.</p>
+      </div>
+
+      <div class="blog-grid">
+
+        <a class="post-card" href="blog-e-prea-scump.html">
+          <div class="post-meta"><span class="num">1</span> Obiecții · Preț</div>
+          <h3>De ce „e prea scump" nu e despre preț — și ce să răspunzi</h3>
+          <p>Cea mai frecventă obiecție ascunde aproape mereu altceva. Cum o citești corect și ce spui în loc să scazi din comision sau din preț.</p>
+          <div class="read">Citește articolul →</div>
+        </a>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">2</span> Exclusivitate <span class="badge-soon">În curând</span></div>
+          <h3>Exclusivitatea în 3 straturi: cum răspunzi la „dau la mai multe agenții"</h3>
+          <p>De ce „mai multe agenții" lucrează împotriva proprietarului și cum explici asta fără să pară că îți aperi doar interesul tău.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">3</span> Apel telefonic <span class="badge-soon">În curând</span></div>
+          <h3>Scriptul apelului: cum treci de primele 10 secunde</h3>
+          <p>Primele două propoziții decid dacă închide sau te ascultă. Structura unui apel care ajunge la întâlnire.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">4</span> Întâlnire <span class="badge-soon">În curând</span></div>
+          <h3>Turul casei: ce observi în tăcere și ce spui cu voce tare</h3>
+          <p>Turul e momentul în care aduni informația care îți dă putere la preț. Ce urmărești și când e mai bine să taci.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">5</span> Întâlnire <span class="badge-soon">În curând</span></div>
+          <h3>5 greșeli care omoară o întâlnire cu proprietarul</h3>
+          <p>Erori mici de început de drum care te costă exclusivitatea — și ce faci în locul lor.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">6</span> Descoperire <span class="badge-soon">În curând</span></div>
+          <h3>Cum afli motivul real al vânzării (și de ce contează pentru preț)</h3>
+          <p>Motivul din spatele vânzării îți spune cât de flexibil e prețul. Cum îl afli fără să pară interogatoriu.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">7</span> Închidere <span class="badge-soon">În curând</span></div>
+          <h3>Momentul semnăturii: de ce trebuie să taci după ce ai cerut-o</h3>
+          <p>Cea mai grea tăcere din meserie. De ce vorbitul după ce ai cerut semnătura strică totul.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+        <div class="post-card soon">
+          <div class="post-meta"><span class="num">8</span> Comision <span class="badge-soon">În curând</span></div>
+          <h3>Cum îți justifici comisionul fără să te scuzi</h3>
+          <p>Comisionul nu se apără, se explică prin valoare. Cum vorbești despre el din poziție de expert, nu de rugăminte.</p>
+          <div class="read">În pregătire</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:10px">
+    <div class="wrap">
+      <div class="card" style="text-align:center">
+        <div class="kicker">Ești gata?</div>
+        <h2 style="margin-bottom:10px">Citește, apoi exersează pe bune</h2>
+        <p class="blog-note">Teoria prinde valoare doar când o pui în practică. În ARENA porți conversațiile din articole cu clienți simulați — până devin reflex.</p>
+        <div class="cta-row" style="margin-top:22px">
+          <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+          <a href="cum-functioneaza.html" class="btn ghost">Vezi cum funcționează</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year">2026</span> B-North · ARENA. Toate drepturile rezervate.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="mailto:contact@arenaforagents.com">Email</a>
+      <a href="https://www.instagram.com/arena_training/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=1271777609354068" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
