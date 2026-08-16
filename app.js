@@ -23,3 +23,14 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   addBlogLink(document.querySelector('.nav-links'), onBlog);
   addBlogLink(document.querySelector('.foot-nav'), false);
 })();
+
+// Link catre Politica de confidentialitate - adaugat automat in footer pe toate paginile.
+(function () {
+  var foot = document.querySelector('.foot-nav');
+  if (!foot) return;
+  if (foot.querySelector('a[href="confidentialitate.html"]')) return;
+  var a = document.createElement('a');
+  a.href = 'confidentialitate.html';
+  a.textContent = 'Confidențialitate';
+  foot.appendChild(a);
+})();
