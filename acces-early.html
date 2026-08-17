@@ -1,206 +1,289 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Acces early · ARENA</title>
-<meta name="description" content="Înscrie-te pentru acces early la ARENA — antrenamentul care transformă semnătura în reflex. Locurile din primul val sunt limitate.">
-<meta property="og:title" content="Acces early · ARENA">
-<meta property="og:description" content="Înscrie-te pentru acces early la ARENA. Locurile din primul val sunt limitate.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARENA — Acces early pentru agenți imobiliari</title>
+<meta name="description" content="Un grup restrâns de agenți imobiliari primește acces gratuit la ARENA înainte de lansare. Aplică în două minute.">
+<meta property="og:title" content="ARENA — Acces early, pe bază de selecție">
+<meta property="og:description" content="15–20 de agenți imobiliari primesc acces gratuit la simulatorul ARENA înainte de lansare. Aplică în două minute.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="style.css">
+<meta property="og:url" content="https://www.arenaforagents.com/acces-early.html">
 <style>
-/* ── Fundal albastru pe toată pagina (aceeași paletă ca aplicația) ── */
+/* ════════════════════════════════════════════════════════════
+   UN SINGUR LUCRU DE SCHIMBAT dacă vrei alt formular:
+   constanta FORMULAR din <script>, la finalul fișierului.
+   Aplicațiile ajung în Google Sheet-ul formularului „ARENA — Acces early".
+   ════════════════════════════════════════════════════════════ */
+:root{
+  --gold-1:#FBE9B0; --gold-2:#E8CE7A; --gold-3:#C9A227; --gold-4:#A6841C;
+  --ink:#0e1420; --card:#141c2e; --card-2:#182135; --border:#2b3550;
+  --pearl:#aeb7cc; --text:#e8ecf6; --muted:#a7b0c6; --maxw:1000px;
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
 body{
+  margin:0; color:var(--text); line-height:1.6;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background:
     radial-gradient(720px 520px at 85% -6%, rgba(158,96,236,.32), transparent 60%),
     radial-gradient(680px 540px at 6% 12%, rgba(236,92,180,.22), transparent 60%),
-    radial-gradient(900px 500px at 50% 108%, rgba(140,100,224,.18), transparent 65%),
+    radial-gradient(900px 520px at 50% 106%, rgba(140,100,224,.20), transparent 65%),
     linear-gradient(180deg,#2a3a6b 0%,#1c2748 45%,#131d34 100%);
   background-attachment: fixed;
 }
-.page-hero{ background: none; padding: 58px 0 22px; }
-.ae-wrap{ max-width: 860px; }
-.ae-sub{ color: var(--muted); font-size: 14.5px; margin-top: 10px; }
+a{ color: inherit; }
+.wrap{ max-width: var(--maxw); margin:0 auto; padding:0 22px; }
 
-/* ── Cardul formularului ── */
-.ae-card{ padding: 30px 30px 26px; }
-@media (max-width: 620px){ .ae-card{ padding: 22px 18px 20px; } }
+/* ── Bara de sus ── */
+.top{
+  position: sticky; top:0; z-index:20;
+  background: rgba(14,20,32,.82); backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.top-in{ max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+.logo{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-family:Georgia,serif; letter-spacing:.22em; font-size:17px; color:var(--gold-2); }
+.logo .bar{ color:var(--gold-3); }
+.top a.cta{ text-decoration:none; color:var(--gold-2); font-size:14px; letter-spacing:.02em; }
 
-.ae-sect{ margin-top: 26px; }
-.ae-sect:first-of-type{ margin-top: 4px; }
-.ae-sect-h{
-  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--gold-3); margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
+/* ── Hero ── */
+.hero{ padding: 78px 0 62px; }
+.eyebrow{
+  display:inline-block; padding:7px 16px; border-radius:999px;
+  border:1px solid rgba(232,206,122,.45); color:var(--gold-2);
+  font-size:11.5px; letter-spacing:.19em; text-transform:uppercase; margin-bottom:24px;
 }
-.ae-sect-h::after{ content:""; flex:1; height:1px; background: var(--border); }
-
-.ae-grid{ display: grid; gap: 14px 16px; grid-template-columns: repeat(2, minmax(0,1fr)); }
-.ae-grid-3{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-.ae-full{ grid-column: 1 / -1; }
-@media (max-width: 620px){
-  .ae-grid, .ae-grid-3{ grid-template-columns: 1fr; }
+h1{
+  font-size: clamp(34px, 5.4vw, 56px); line-height:1.1; margin:0 0 20px;
+  font-weight:800; letter-spacing:-.015em; max-width: 15ch;
 }
-
-.ae-f{ display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.ae-f > label{
-  font-size: 12.5px; letter-spacing: .02em; color: var(--pearl);
-}
-.ae-f .req{ color: var(--gold-3); }
-
-.ae-in, .ae-sel, .ae-ta{
-  width: 100%; box-sizing: border-box;
-  background: rgba(9,14,26,.72);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  color: var(--text);
-  font-family: inherit; font-size: 15px;
-  padding: 11px 13px;
-  outline: none;
-  transition: border-color .14s, box-shadow .14s, background .14s;
-}
-.ae-ta{ resize: vertical; min-height: 78px; line-height: 1.55; }
-.ae-in::placeholder, .ae-ta::placeholder{ color: #7b849c; }
-.ae-in:focus, .ae-sel:focus, .ae-ta:focus{
-  border-color: var(--gold-3);
-  box-shadow: 0 0 0 3px rgba(201,162,39,.16);
-  background: rgba(9,14,26,.9);
-}
-.ae-sel{
-  appearance: none; -webkit-appearance: none; cursor: pointer;
-  padding-right: 38px;
-  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 14px center;
-}
-.ae-sel option{ background: #141c2e; color: var(--text); }
-
-/* ── Pastile alegere (gen, ce exersezi) ── */
-.ae-pills{ display: flex; flex-wrap: wrap; gap: 9px; }
-.ae-pill input{ position: absolute; opacity: 0; pointer-events: none; }
-.ae-pill{
-  position: relative; display: inline-flex; align-items: center; gap: 8px;
-  padding: 9px 16px; border-radius: 999px; cursor: pointer;
-  background: rgba(9,14,26,.6); border: 1px solid var(--border);
-  color: var(--muted); font-size: 14px;
-  transition: all .14s;
-  user-select: none;
-}
-.ae-pill:hover{ border-color: #3d4a70; color: var(--text); }
-.ae-pill:has(input:checked){
-  border-color: var(--gold-3);
-  background: rgba(201,162,39,.13);
-  color: var(--gold-2);
-  font-weight: 600;
-}
-.ae-pill:has(input:focus-visible){ box-shadow: 0 0 0 3px rgba(201,162,39,.2); }
-
-/* ── Trimitere ── */
-.ae-foot{
-  margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border);
-  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px;
-}
-.ae-note{ color: var(--muted); font-size: 12.5px; flex: 1; min-width: 200px; }
-.ae-note a{ color: var(--gold-2); }
-.ae-send{ border: none; cursor: pointer; font-family: inherit; }
-.ae-send[disabled]{ opacity: .6; cursor: default; }
-.ae-err{
-  margin-top: 14px; display: none;
-  background: rgba(120,32,38,.28); border: 1px solid #7a3a3e;
-  color: #f0b8bb; padding: 11px 14px; border-radius: 12px; font-size: 14px;
-}
-
-/* ── Ecranul de confirmare ── */
-.ae-ok{ display: none; text-align: center; padding: 20px 6px 10px; }
-.ae-ok .tick{
-  width: 62px; height: 62px; margin: 0 auto 20px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 30px; color: #2a2205;
+h1 .accent{ color:var(--gold-2); }
+.lead{ font-size:17.5px; color:#c7cee0; max-width:62ch; margin:0 0 30px; }
+.btns{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.btn{
+  display:inline-block; text-decoration:none; cursor:pointer; font-family:inherit;
+  font-weight:700; font-size:15px; border-radius:999px; padding:14px 28px;
   background: linear-gradient(180deg,var(--gold-1),var(--gold-3));
-  box-shadow: 0 10px 30px rgba(201,162,39,.3);
+  color:#2a2205; border:1px solid rgba(255,255,255,.25);
+  box-shadow: 0 8px 24px rgba(201,162,39,.3);
+  transition: transform .12s, box-shadow .12s;
 }
-.ae-ok h2{ font-size: 25px; margin: 0 0 12px; }
-.ae-ok p{ color: var(--muted); max-width: 460px; margin: 0 auto 8px; }
+.btn:hover{ transform: translateY(-1px); box-shadow:0 12px 30px rgba(201,162,39,.38); }
+.btn-ghost{
+  background:transparent; color:var(--text); box-shadow:none;
+  border:1px solid rgba(255,255,255,.28); font-weight:600;
+}
+.btn-ghost:hover{ border-color:var(--gold-3); color:var(--gold-2); box-shadow:none; }
+.fineprint{ margin-top:18px; font-size:13px; color:var(--muted); }
+
+/* ── Secțiuni ── */
+section{ padding: 44px 0; }
+h2{ font-size: clamp(24px, 3.2vw, 32px); line-height:1.22; margin:0 0 10px; font-weight:800; letter-spacing:-.01em; }
+.sub{ color:var(--muted); max-width:70ch; margin:0 0 26px; }
+.card{
+  background: linear-gradient(180deg, rgba(24,33,53,.86) 0%, rgba(20,28,46,.9) 70%, rgba(14,20,32,.92) 100%);
+  border:1px solid var(--border); border-radius:20px; padding:26px;
+  box-shadow: 0 30px 70px rgba(12,18,40,.4), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.cols-3{ display:grid; gap:16px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.cols-2{ display:grid; gap:16px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:800px){ .cols-3{ grid-template-columns:1fr; } .cols-2{ grid-template-columns:1fr; } }
+.card h3{ margin:0 0 8px; font-size:18px; color:var(--gold-2); }
+.card p{ margin:0; color:var(--muted); font-size:14.5px; }
+
+.lista{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+.lista li{ display:flex; gap:12px; align-items:flex-start; color:#cdd4e4; font-size:15px; }
+.lista .mark{
+  flex:0 0 26px; height:26px; border-radius:8px; display:grid; place-items:center;
+  background:rgba(201,162,39,.16); color:var(--gold-2);
+  font-size:13px; font-weight:700; margin-top:1px;
+}
+
+/* ── Formular ── */
+.form-card{ padding:30px; scroll-margin-top:80px; }
+@media (max-width:620px){ .form-card{ padding:22px 18px; } }
+.grp{ margin-top:26px; }
+.grp:first-of-type{ margin-top:2px; }
+.grp-h{
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-3);
+  margin-bottom:14px; display:flex; align-items:center; gap:10px;
+}
+.grp-h::after{ content:""; flex:1; height:1px; background:var(--border); }
+.g{ display:grid; gap:14px 16px; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.g-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.full{ grid-column:1 / -1; }
+@media (max-width:620px){ .g, .g-3{ grid-template-columns:1fr; } }
+
+.f{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+.f > label{ font-size:12.5px; color:var(--pearl); }
+.f .hint{ font-size:11.5px; color:#8892a8; margin-top:-3px; }
+.req{ color:var(--gold-3); }
+
+.in, .sel, .ta{
+  width:100%; background:rgba(9,14,26,.72); border:1px solid var(--border);
+  border-radius:12px; color:var(--text); font-family:inherit; font-size:15px;
+  padding:11px 13px; outline:none;
+  transition:border-color .14s, box-shadow .14s, background .14s;
+}
+.ta{ resize:vertical; min-height:76px; line-height:1.55; }
+.in::placeholder, .ta::placeholder{ color:#7b849c; }
+.in:focus,.sel:focus,.ta:focus{ border-color:var(--gold-3); box-shadow:0 0 0 3px rgba(201,162,39,.16); background:rgba(9,14,26,.9); }
+.sel{
+  appearance:none; -webkit-appearance:none; cursor:pointer; padding-right:38px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23C9A227' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center;
+}
+.sel option{ background:#141c2e; color:var(--text); }
+
+.pills{ display:flex; flex-wrap:wrap; gap:9px; }
+.pill{
+  position:relative; display:inline-flex; align-items:center; padding:9px 16px;
+  border-radius:999px; cursor:pointer; user-select:none;
+  background:rgba(9,14,26,.6); border:1px solid var(--border);
+  color:var(--muted); font-size:14px; transition:all .14s;
+}
+.pill input{ position:absolute; opacity:0; pointer-events:none; }
+.pill:hover{ border-color:#3d4a70; color:var(--text); }
+.pill:has(input:checked){ border-color:var(--gold-3); background:rgba(201,162,39,.13); color:var(--gold-2); font-weight:600; }
+
+.foot-form{ margin-top:28px; padding-top:22px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; }
+.note{ color:var(--muted); font-size:12.5px; flex:1; min-width:210px; }
+.err{ margin-top:14px; display:none; background:rgba(120,32,38,.3); border:1px solid #7a3a3e; color:#f0b8bb; padding:11px 14px; border-radius:12px; font-size:14px; }
+
+.ok{ display:none; text-align:center; padding:24px 6px 12px; }
+.ok .tick{
+  width:64px; height:64px; margin:0 auto 20px; border-radius:50%; display:grid; place-items:center;
+  font-size:31px; color:#2a2205; background:linear-gradient(180deg,var(--gold-1),var(--gold-3));
+  box-shadow:0 10px 30px rgba(201,162,39,.3);
+}
+.ok h2{ font-size:26px; margin:0 0 12px; }
+.ok p{ color:var(--muted); max-width:470px; margin:0 auto 8px; }
+
+footer{ padding:34px 0 46px; border-top:1px solid rgba(255,255,255,.07); margin-top:30px; color:var(--muted); font-size:13px; }
+.foot-in{ display:flex; flex-wrap:wrap; gap:14px 26px; align-items:center; justify-content:space-between; }
+footer a{ color:var(--pearl); text-decoration:none; }
+footer a:hover{ color:var(--gold-2); }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-in">
-    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
-    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
-    <div class="nav-links" id="nl">
-      <a href="ce-este.html">Ce este</a>
-      <a href="niveluri.html">Niveluri</a>
-      <a href="cum-functioneaza.html">Cum funcționează</a>
-      <a href="pentru-cine.html">Pentru cine</a>
-      <a href="pentru-agentii.html">Pentru agenții</a>
-      <a href="etica-si-siguranta.html">Etică și siguranță</a>
-      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
-    </div>
-    <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+<div class="top">
+  <div class="top-in">
+    <a class="logo" href="index.html"><span class="bar">|</span>ARENA<span class="bar">|</span></a>
+    <a class="cta" href="#aplica">Aplică →</a>
   </div>
-</nav>
+</div>
 
-<main>
-
-<section class="page-hero">
-  <div class="wrap ae-wrap">
-    <div class="kicker">Acces early</div>
-    <h1>Intră în primul val</h1>
-    <p class="lead">Deschidem ARENA pe rând, în grupuri mici, ca să putem sta aproape de fiecare agent. Lasă-ne datele și te sunăm cu un cod de acces.</p>
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Acces early · locuri limitate</div>
+    <h1>Un grup restrâns de agenți intră în ARENA <span class="accent">înainte de lansare.</span></h1>
+    <p class="lead">Alegem 15–20 de agenți imobiliari care primesc acces complet, gratuit. Nu intră oricine — selecția se face pe baza răspunsurilor din formular.</p>
+    <div class="btns">
+      <a class="btn" href="#aplica">Aplică în două minute</a>
+      <a class="btn btn-ghost" href="ce-este.html">Ce este ARENA</a>
+    </div>
+    <div class="fineprint">Fără costuri. Fără card. Te contactăm pe email dacă ești selectat.</div>
   </div>
 </section>
 
-<section style="padding-bottom:70px">
-  <div class="wrap ae-wrap">
-    <div class="card ae-card">
+<section>
+  <div class="wrap">
+    <h2>Un simulator în care greșelile nu costă clienți</h2>
+    <p class="sub">ARENA e locul în care exersezi conversațiile reale cu proprietarii — de la primul apel până la semnătura pe exclusivitate. Clienții sunt simulați, dar se comportă ca oamenii adevărați: ezită, obiectează, se răzgândesc, au un motiv real de vânzare pe care nu ți-l spun din prima.</p>
+    <div class="cols-3">
+      <div class="card">
+        <h3>Apelul telefonic</h3>
+        <p>15 clienți, de la cel mai relaxat până la cel care închide în trei secunde. Obiectivul e unul singur: obții întâlnirea.</p>
+      </div>
+      <div class="card">
+        <h3>Întâlnirea față în față</h3>
+        <p>Nouă personaje cu poveste proprie. Turul casei, negocierea prețului, cererea de exclusivitate — cele șase faze, separat.</p>
+      </div>
+      <div class="card">
+        <h3>Verdict, nu felicitări</h3>
+        <p>Autoritate, descoperire, preț, închidere. Plus exact ce ai de exersat data viitoare. Coaching în timp real, în momentul deciziei.</p>
+      </div>
+    </div>
+    <p class="sub" style="margin-top:22px;margin-bottom:0">Totul în limba română, gândit pentru piața de la noi. Pe telefon sau pe laptop, oricând ai zece minute libere.</p>
+  </div>
+</section>
 
-      <!-- ══ FORMULAR ══ -->
+<section>
+  <div class="wrap cols-2" style="align-items:start">
+    <div class="card">
+      <h2 style="font-size:22px;margin-bottom:18px">Ce primești dacă ești selectat</h2>
+      <ul class="lista">
+        <li><span class="mark">✓</span><span>Acces complet și gratuit la ambele niveluri, înainte de lansarea publică.</span></li>
+        <li><span class="mark">✓</span><span>Toate cele 24 de personaje — 15 la telefon, 9 la întâlnire.</span></li>
+        <li><span class="mark">✓</span><span>Coaching în timp real și verdict măsurabil după fiecare sesiune.</span></li>
+        <li><span class="mark">✓</span><span>Linie directă cu echipa. Ce ne spui tu schimbă produsul înainte să-l vadă restul pieței.</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h2 style="font-size:22px;margin-bottom:18px">Pe cine alegem</h2>
+      <ul class="lista">
+        <li><span class="mark">1</span><span>Agenți cu telefon Android — acolo începe testarea. Cei cu iPhone intră pe lista pentru versiunea iOS.</span></li>
+        <li><span class="mark">2</span><span>Oameni care pot aloca 15–30 de minute pe zi, minimum trei zile pe săptămână.</span></li>
+        <li><span class="mark">3</span><span>Disponibilitate să folosească aplicația 14 zile la rând și să dea feedback sincer — inclusiv ce nu merge.</span></li>
+        <li><span class="mark">4</span><span>O motivație clară. Ne interesează ce vrei să repari, nu cât de bun ești deja.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="aplica">
+  <div class="wrap">
+    <h2>Aplică pentru acces early</h2>
+    <p class="sub">Durează două minute. Te contactăm pe email dacă ești selectat.</p>
+
+    <div class="card form-card">
       <form id="aeForm" novalidate>
 
-        <div class="ae-sect">
-          <div class="ae-sect-h">Cine ești</div>
-          <div class="ae-grid">
-            <div class="ae-f">
-              <label for="f-nume">Nume și prenume <span class="req">*</span></label>
-              <input class="ae-in" id="f-nume" name="entry.426595313" type="text" autocomplete="name" required>
+        <div class="grp">
+          <div class="grp-h">Cine ești</div>
+          <div class="g">
+            <div class="f">
+              <label for="f1">Nume și prenume <span class="req">*</span></label>
+              <input class="in" id="f1" name="entry.426595313" type="text" autocomplete="name" required>
             </div>
-            <div class="ae-f">
-              <label for="f-tel">Telefon <span class="req">*</span></label>
-              <input class="ae-in" id="f-tel" name="entry.1742340116" type="tel" autocomplete="tel" placeholder="07xx xxx xxx" required>
+            <div class="f">
+              <label for="f2">Număr de telefon <span class="req">*</span></label>
+              <input class="in" id="f2" name="entry.1742340116" type="tel" autocomplete="tel" placeholder="07xx xxx xxx" required>
             </div>
-            <div class="ae-f ae-full">
-              <label for="f-mail">Email <span class="req">*</span></label>
-              <input class="ae-in" id="f-mail" name="entry.12188919" type="email" autocomplete="email" placeholder="nume@exemplu.ro" required>
+            <div class="f full">
+              <label for="f3">Email <span class="req">*</span></label>
+              <input class="in" id="f3" name="entry.12188919" type="email" autocomplete="email" placeholder="nume@exemplu.ro" required>
+              <span class="hint">Aici primești accesul dacă ești selectat.</span>
             </div>
-            <div class="ae-f">
-              <label for="f-oras">Orașul în care lucrezi <span class="req">*</span></label>
-              <input class="ae-in" id="f-oras" name="entry.153200494" type="text" required>
+            <div class="f">
+              <label for="f4">Orașul în care lucrezi <span class="req">*</span></label>
+              <input class="in" id="f4" name="entry.153200494" type="text" required>
             </div>
-            <div class="ae-f">
-              <label for="f-varsta">Vârsta <span class="req">*</span></label>
-              <input class="ae-in" id="f-varsta" name="entry.1353218488" type="number" min="16" max="99" required>
+            <div class="f">
+              <label for="f5">Vârsta <span class="req">*</span></label>
+              <input class="in" id="f5" name="entry.1353218488" type="number" min="16" max="99" required>
             </div>
-            <div class="ae-f">
-              <label for="f-agentie">Agenția la care lucrezi</label>
-              <input class="ae-in" id="f-agentie" name="entry.1661290977" type="text" placeholder="opțional">
+            <div class="f">
+              <label for="f6">La ce agenție lucrezi?</label>
+              <input class="in" id="f6" name="entry.1661290977" type="text" placeholder="Opțional">
             </div>
-            <div class="ae-f">
+            <div class="f">
               <label>Gen <span class="req">*</span></label>
-              <div class="ae-pills" id="grp-gen">
-                <label class="ae-pill"><input type="radio" name="entry.2134634511" value="Femeie" required>Femeie</label>
-                <label class="ae-pill"><input type="radio" name="entry.2134634511" value="Bărbat" required>Bărbat</label>
+              <div class="pills">
+                <label class="pill"><input type="radio" name="entry.2134634511" value="Femeie" required>Femeie</label>
+                <label class="pill"><input type="radio" name="entry.2134634511" value="Bărbat" required>Bărbat</label>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="ae-sect">
-          <div class="ae-sect-h">Experiența ta</div>
-          <div class="ae-grid">
-            <div class="ae-f">
-              <label for="f-exp">De cât timp ești agent imobiliar? <span class="req">*</span></label>
-              <select class="ae-sel" id="f-exp" name="entry.393208801" required>
+        <div class="grp">
+          <div class="grp-h">Experiența ta</div>
+          <div class="g">
+            <div class="f">
+              <label for="f7">De cât timp ești agent imobiliar? <span class="req">*</span></label>
+              <select class="sel" id="f7" name="entry.393208801" required>
                 <option value="" selected disabled>Alege…</option>
                 <option>Nu sunt încă agent, vreau să încep</option>
                 <option>Sub 6 luni</option>
@@ -209,23 +292,32 @@ body{
                 <option>Peste 3 ani</option>
               </select>
             </div>
-            <div class="ae-f">
-              <label for="f-mgr">Ești manager de echipă? <span class="req">*</span></label>
-              <select class="ae-sel" id="f-mgr" name="entry.4339870" required>
+            <div class="f">
+              <label for="f8">Ești manager de echipă? <span class="req">*</span></label>
+              <select class="sel" id="f8" name="entry.4339870" required>
                 <option value="" selected disabled>Alege…</option>
                 <option>Da</option>
                 <option>Nu</option>
               </select>
             </div>
+            <div class="f full">
+              <label>Ce telefon folosești? <span class="req">*</span></label>
+              <span class="hint">Contează — testarea începe pe Android.</span>
+              <div class="pills" style="margin-top:4px">
+                <label class="pill"><input type="radio" name="entry.224232266" value="Android" required>Android</label>
+                <label class="pill"><input type="radio" name="entry.224232266" value="iPhone" required>iPhone</label>
+                <label class="pill"><input type="radio" name="entry.224232266" value="Am și Android, și iPhone" required>Am și Android, și iPhone</label>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="ae-sect">
-          <div class="ae-sect-h">Cât te poți antrena</div>
-          <div class="ae-grid ae-grid-3">
-            <div class="ae-f">
-              <label for="f-timp">Pe zi <span class="req">*</span></label>
-              <select class="ae-sel" id="f-timp" name="entry.913648735" required>
+        <div class="grp">
+          <div class="grp-h">Cât te poți antrena</div>
+          <div class="g g-3">
+            <div class="f">
+              <label for="f9">Pe zi <span class="req">*</span></label>
+              <select class="sel" id="f9" name="entry.913648735" required>
                 <option value="" selected disabled>Alege…</option>
                 <option>Sub 15 minute</option>
                 <option>15-30 minute</option>
@@ -233,9 +325,9 @@ body{
                 <option>Peste o oră</option>
               </select>
             </div>
-            <div class="ae-f">
-              <label for="f-zile">Zile pe săptămână <span class="req">*</span></label>
-              <select class="ae-sel" id="f-zile" name="entry.1852230441" required>
+            <div class="f">
+              <label for="f10">Zile pe săptămână <span class="req">*</span></label>
+              <select class="sel" id="f10" name="entry.1852230441" required>
                 <option value="" selected disabled>Alege…</option>
                 <option>1-2 zile</option>
                 <option>3-4 zile</option>
@@ -243,9 +335,9 @@ body{
                 <option>În fiecare zi</option>
               </select>
             </div>
-            <div class="ae-f">
-              <label for="f-ora">La ce oră <span class="req">*</span></label>
-              <select class="ae-sel" id="f-ora" name="entry.1423383414" required>
+            <div class="f">
+              <label for="f11">La ce oră <span class="req">*</span></label>
+              <select class="sel" id="f11" name="entry.1423383414" required>
                 <option value="" selected disabled>Alege…</option>
                 <option>Dimineața, 7-10</option>
                 <option>La prânz, 10-14</option>
@@ -254,97 +346,90 @@ body{
                 <option>După ora 22</option>
               </select>
             </div>
-          </div>
-        </div>
-
-        <div class="ae-sect">
-          <div class="ae-sect-h">Ce vrei să exersezi <span class="req" style="letter-spacing:0">*</span></div>
-          <div class="ae-pills" id="grp-exers">
-            <label class="ae-pill"><input type="checkbox" name="entry.1806695343" value="Apelul telefonic">Apelul telefonic</label>
-            <label class="ae-pill"><input type="checkbox" name="entry.1806695343" value="Turul casei">Turul casei</label>
-            <label class="ae-pill"><input type="checkbox" name="entry.1806695343" value="Negocierea prețului">Negocierea prețului</label>
-            <label class="ae-pill"><input type="checkbox" name="entry.1806695343" value="Semnătura pe exclusivitate">Semnătura pe exclusivitate</label>
-          </div>
-        </div>
-
-        <div class="ae-sect">
-          <div class="ae-sect-h">Încă două lucruri, dacă vrei</div>
-          <div class="ae-grid">
-            <div class="ae-f ae-full">
-              <label for="f-dece">De ce vrei acces early la ARENA?</label>
-              <textarea class="ae-ta" id="f-dece" name="entry.384633525" placeholder="Două rânduri sunt destul."></textarea>
-            </div>
-            <div class="ae-f ae-full">
-              <label for="f-unde">De unde ai auzit de ARENA?</label>
-              <input class="ae-in" id="f-unde" name="entry.1173375832" type="text" placeholder="Facebook, un coleg, la birou…">
+            <div class="f full">
+              <label>Poți folosi aplicația 14 zile la rând și să ne dai feedback sincer? <span class="req">*</span></label>
+              <div class="pills">
+                <label class="pill"><input type="radio" name="entry.2137296923" value="Da" required>Da</label>
+                <label class="pill"><input type="radio" name="entry.2137296923" value="Nu" required>Nu</label>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="ae-err" id="aeErr"></div>
-
-        <div class="ae-foot">
-          <div class="ae-note">
-            Datele tale rămân la noi și le folosim doar ca să te contactăm despre ARENA.
-            Detalii în <a href="confidentialitate.html">politica de confidențialitate</a>.
+        <div class="grp">
+          <div class="grp-h">Ce vrei să exersezi <span class="req" style="letter-spacing:0">*</span></div>
+          <div class="pills" id="grp-exers">
+            <label class="pill"><input type="checkbox" name="entry.1806695343" value="Apelul telefonic">Apelul telefonic</label>
+            <label class="pill"><input type="checkbox" name="entry.1806695343" value="Turul casei">Turul casei</label>
+            <label class="pill"><input type="checkbox" name="entry.1806695343" value="Negocierea prețului">Negocierea prețului</label>
+            <label class="pill"><input type="checkbox" name="entry.1806695343" value="Semnătura pe exclusivitate">Semnătura pe exclusivitate</label>
           </div>
-          <button class="btn ae-send" id="aeSend" type="submit">Trimite aplicația</button>
+        </div>
+
+        <div class="grp">
+          <div class="grp-h">Încă două lucruri, dacă vrei</div>
+          <div class="g">
+            <div class="f full">
+              <label for="f12">De ce vrei să intri în ARENA? Ce te-ar ajuta cel mai mult?</label>
+              <textarea class="ta" id="f12" name="entry.384633525" placeholder="Două rânduri sunt destul."></textarea>
+              <span class="hint">Opțional, dar contează la selecție.</span>
+            </div>
+            <div class="f full">
+              <label for="f13">De unde ai auzit de ARENA?</label>
+              <input class="in" id="f13" name="entry.1173375832" type="text" placeholder="Facebook, un coleg, la birou…">
+            </div>
+          </div>
+        </div>
+
+        <div class="err" id="aeErr"></div>
+
+        <div class="foot-form">
+          <div class="note">Datele tale rămân la noi și se folosesc doar pentru selecție. Nu le dăm nimănui.</div>
+          <button class="btn" id="aeSend" type="submit">Trimite aplicația</button>
         </div>
       </form>
 
-      <!-- ══ CONFIRMARE ══ -->
-      <div class="ae-ok" id="aeOk">
+      <div class="ok" id="aeOk">
         <div class="tick">✓</div>
         <h2>Am primit aplicația ta</h2>
-        <p>Te contactăm în cel mai scurt timp cu un cod de acces sau cu locul tău în primul val.</p>
-        <p class="muted" style="font-size:13.5px">Între timp poți citi <a href="niveluri.html" style="color:var(--gold-2)">cum arată cele două niveluri</a>.</p>
+        <p>Dacă intri în primul val, te contactăm pe email cu codul de acces. Îți răspundem în orice caz.</p>
+        <p style="font-size:13.5px">Între timp poți citi <a href="niveluri.html" style="color:var(--gold-2)">cum arată cele două niveluri</a>.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-</main>
-
 <footer>
   <div class="wrap foot-in">
-    <div>
-      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
-      <div style="margin-top:8px;font-size:13px">© <span id="year">2026</span> B-North · ARENA. Toate drepturile rezervate.</div>
-    </div>
-    <div class="foot-nav">
+    <div>© <span id="year">2026</span> B-North · ARENA</div>
+    <div style="display:flex;gap:18px;flex-wrap:wrap">
+      <a href="index.html">Acasă</a>
       <a href="ce-este.html">Ce este</a>
       <a href="niveluri.html">Niveluri</a>
-      <a href="cum-functioneaza.html">Cum funcționează</a>
-      <a href="pentru-cine.html">Pentru cine</a>
-      <a href="pentru-agentii.html">Pentru agenții</a>
-      <a href="etica-si-siguranta.html">Etică și siguranță</a>
-      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
-    <a href="confidentialitate.html">Confidențialitate</a></div>
-    <div class="foot-social">
-      <a href="mailto:contact@arenaforagents.com">Email</a>
-      <a href="https://www.instagram.com/arena_training/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/profile.php?id=1271777609354068" target="_blank" rel="noopener">Facebook</a>
+      <a href="contact.html">Contact</a>
+      <a href="confidentialitate.html">Confidențialitate</a>
     </div>
   </div>
 </footer>
 
-<script src="app.js"></script>
 <script>
 (function(){
-  // Trimite răspunsurile în același Google Form (deci în același Sheet),
-  // fără să scoatem agentul din designul site-ului.
-  var ACTIUNE = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ-5-pKe1a_Lywvu8ak_tx0o2diUQkU0W7d8yV5hnxUUrYVw/formResponse';
+  // Aplicațiile ajung în formularul Google „ARENA — Acces early",
+  // deci în Google Sheet-ul lui. Numele câmpurilor (entry.xxx) sunt legate acolo.
+  var FORMULAR = 'https://docs.google.com/forms/d/e/1FAIpQLSfQ-5-pKe1a_Lywvu8ak_tx0o2diUQkU0W7d8yV5hnxUUrYVw/formResponse';
+
+  var an = document.getElementById('year'); if (an) an.textContent = new Date().getFullYear();
 
   var form = document.getElementById('aeForm');
   var eroare = document.getElementById('aeErr');
   var buton = document.getElementById('aeSend');
   var confirmare = document.getElementById('aeOk');
 
-  function arataEroare(text){
+  function arata(text){
     eroare.textContent = text;
     eroare.style.display = 'block';
-    eroare.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    try { eroare.scrollIntoView({ block:'center', behavior:'smooth' }); } catch(e){}
   }
 
   form.addEventListener('submit', function(ev){
@@ -353,12 +438,14 @@ body{
 
     if (!form.checkValidity()){
       var primul = form.querySelector(':invalid');
-      if (primul){ try{ primul.focus({preventScroll:true}); primul.scrollIntoView({block:'center',behavior:'smooth'}); }catch(e){} }
-      arataEroare('Mai lipsesc câteva câmpuri obligatorii — sunt marcate cu ✳.');
+      if (primul){
+        try { primul.focus({preventScroll:true}); primul.scrollIntoView({block:'center',behavior:'smooth'}); } catch(e){}
+      }
+      arata('Mai lipsesc câteva câmpuri obligatorii — sunt marcate cu ✳.');
       return;
     }
     if (!form.querySelector('#grp-exers input:checked')){
-      arataEroare('Alege cel puțin un lucru pe care vrei să-l exersezi.');
+      arata('Alege cel puțin un lucru pe care vrei să-l exersezi.');
       return;
     }
 
@@ -370,19 +457,19 @@ body{
       if (String(val).trim() !== '') date.append(cheie, val);
     });
 
-    fetch(ACTIUNE, {
+    // Cererea e opacă (no-cors): trimiterea funcționează, dar nu putem citi
+    // răspunsul Google. De aceea arătăm confirmarea în ambele cazuri.
+    fetch(FORMULAR, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: date.toString()
-    }).then(termina).catch(termina);
+    }).then(gata).catch(gata);
 
-    // Cererea e opacă (no-cors), deci nu putem citi răspunsul Google.
-    // Trimiterea funcționează; arătăm confirmarea în orice caz.
-    function termina(){
+    function gata(){
       form.style.display = 'none';
       confirmare.style.display = 'block';
-      try { confirmare.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch(e){}
+      try { confirmare.scrollIntoView({ block:'center', behavior:'smooth' }); } catch(e){}
     }
   });
 })();
