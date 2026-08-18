@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scriptul apelului: cum treci de primele 10 secunde | Blog ARENA</title>
+<meta name="description" content="Primele 10 secunde ale unui apel decid dacă proprietarul închide sau te ascultă. Nu contează pitch-ul, ci cum scazi tensiunea. Structura unui apel care ajunge la întâlnire.">
+<meta property="og:title" content="Scriptul apelului: cum treci de primele 10 secunde">
+<meta property="og:description" content="De ce proprietarul închide în prima frază și cum construiești un început de apel care îl face să te asculte — din poziție de expert, nu de vânzător insistent.">
+<meta property="og:type" content="article">
+<style>
+/* ===== Stil de bază ARENA — inclus în pagină pentru portabilitate (identic cu style.css) ===== */
+:root{
+  --gold-1:#FBE9B0; --gold-2:#E8CE7A; --gold-3:#C9A227; --gold-4:#A6841C;
+  --ink:#0e1420; --card:#141c2e; --card-2:#182135;
+  --border:#2b3550; --pearl:#aeb7cc;
+  --text:#e8ecf6; --muted:#a7b0c6;
+  --green:#8fd6a0;
+  --maxw:1080px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);line-height:1.6;background:#0e1626;min-height:100vh;display:flex;flex-direction:column}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;width:100%}
+a{color:inherit;text-decoration:none}
+main{flex:1 0 auto}
+.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:.12em;
+  display:inline-flex;align-items:center;gap:.28em;line-height:1}
+.logo .bar{color:var(--gold-3);font-weight:400;opacity:.85}
+.logo .word{background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 42%,var(--gold-3) 72%,var(--gold-4) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
+  background:linear-gradient(180deg,rgba(14,20,32,.78),rgba(14,20,32,.35));
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:var(--maxw);margin:0 auto}
+.nav-in .logo{font-size:20px}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--muted);font-size:14px;letter-spacing:.02em}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-links a.active{color:var(--gold-2)}
+.btn{display:inline-block;font-weight:700;border-radius:999px;padding:12px 22px;font-size:14px;letter-spacing:.03em;
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-3));color:#2a2205;
+  box-shadow:0 8px 24px rgba(201,162,39,.32);border:1px solid rgba(255,255,255,.25);
+  transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 12px 30px rgba(201,162,39,.42)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none}
+.btn.ghost:hover{border-color:var(--pearl)}
+.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:10px;color:var(--text);
+  font-size:20px;padding:4px 12px;cursor:pointer}
+.page-hero{padding:66px 0 30px;text-align:center;position:relative;
+  background:radial-gradient(760px 460px at 84% -10%, rgba(158,96,236,.34), transparent 62%),
+    radial-gradient(680px 520px at 8% 10%, rgba(236,92,180,.24), transparent 60%),
+    linear-gradient(180deg,#26325e 0%,#1a2547 46%,#121c34 100%);
+  border-bottom:1px solid rgba(255,255,255,.06)}
+.page-hero .kicker{color:var(--gold-2);font-size:12px;letter-spacing:.26em;text-transform:uppercase;margin-bottom:14px}
+.page-hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.14;font-weight:800;max-width:20ch;margin:0 auto 14px;
+  background:linear-gradient(180deg,#ffffff,#c9d3ea);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.page-hero p.lead{color:var(--muted);font-size:clamp(16px,2vw,19px);max-width:60ch;margin:0 auto}
+section{padding:60px 0}
+.section-head{text-align:center;max-width:62ch;margin:0 auto 40px}
+.kicker{color:var(--gold-2);font-size:12px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(23px,3.2vw,33px);font-weight:800;line-height:1.2;margin-bottom:14px}
+.section-head p{color:var(--muted);font-size:17px}
+.prose{max-width:70ch;margin:0 auto;color:var(--muted);font-size:17px}
+.prose p{margin-bottom:18px}
+.prose strong{color:var(--text)}
+.card{background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 70%,var(--ink) 100%);
+  border:1px solid var(--border);border-radius:20px;padding:28px;
+  box-shadow:0 30px 70px rgba(12,18,40,.4),inset 0 1px 0 rgba(255,255,255,.05)}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{flex-shrink:0;padding:46px 0 40px;border-top:1px solid rgba(255,255,255,.06);margin-top:40px;color:var(--muted);font-size:14px}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-nav{display:flex;gap:18px;flex-wrap:wrap}
+.foot-nav a:hover{color:var(--text)}
+.foot-social{display:flex;gap:16px}
+.foot-social a:hover{color:var(--gold-2)}
+@media(max-width:1100px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;
+    background:#0e1626;border-bottom:1px solid var(--border);padding:8px 0}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 22px}
+  .nav-toggle{display:inline-block}
+}
+
+/* ---- Article-specific ---- */
+.article{max-width:72ch;margin:0 auto}
+.article .prose{max-width:none}
+.article-info{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;
+  color:var(--pearl);font-size:13.5px;margin-top:16px}
+.article-info span{display:inline-flex;align-items:center;gap:7px}
+.article h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(22px,3vw,28px);
+  margin:38px 0 14px;line-height:1.28}
+.article h3{font-size:19px;margin:26px 0 8px;color:var(--text)}
+.article .prose p{margin-bottom:18px}
+.article ul{margin:0 0 18px 0;padding-left:0;list-style:none}
+.article ul li{position:relative;padding-left:26px;margin-bottom:12px;color:var(--muted)}
+.article ul li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-3))}
+.article ul li strong{color:var(--text)}
+.pull{background:linear-gradient(180deg,var(--card-2) 0%,var(--card) 70%,var(--ink) 100%);
+  border:1px solid var(--border);border-left:3px solid var(--gold-3);border-radius:16px;
+  padding:22px 24px;margin:26px 0;font-family:Georgia,serif;font-size:19px;line-height:1.5;color:var(--text)}
+.say{border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:14px 0;
+  background:rgba(143,214,160,.06)}
+.say .lbl{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:6px}
+.say p{margin:0;color:var(--text);font-size:16.5px}
+.layer{display:flex;gap:16px;align-items:flex-start;margin:18px 0}
+.layer .n{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:Georgia,serif;font-weight:700;color:#2a2205;font-size:17px;
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-3))}
+.layer h3{margin:4px 0 4px}
+.layer p{color:var(--muted);margin:0}
+.back-link{display:inline-block;margin-bottom:6px;color:var(--muted);font-size:14px}
+.back-link:hover{color:var(--text)}
+.cta-inline{margin:40px auto 0;text-align:center}
+</style>
+<!-- Pe site, style.css real se încarcă la final și are prioritate (rămâne identic + preia update-uri). În preview/local, stilul de bază de mai sus asigură același aspect. -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="page-hero">
+    <div class="wrap article">
+      <a href="blog.html" class="back-link">← Toate articolele</a>
+      <div class="kicker">Apel telefonic</div>
+      <h1>Scriptul apelului: cum treci de primele 10 secunde</h1>
+      <div class="article-info">
+        <span>◆ Prospectare · Apel</span>
+        <span>◆ ~6 min de citit</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <article class="article">
+        <div class="prose">
+
+          <p>Suni un proprietar care și-a listat singur apartamentul. Apeși pe apel, sună de două ori, ridică — și în capul tău ai deja tot pitch-ul pregătit. Nu apuci să-l spui. „Nu, mulțumesc, nu vreau agenție", și a închis. Ai pierdut nu pentru că oferta ta e slabă, ci pentru că <strong>ai pierdut în primele 10 secunde</strong>, înainte ca el să audă vreun cuvânt care conta.</p>
+
+          <p>Aici e capcana în care cad aproape toți agenții la telefon: cred că apelul se câștigă cu argumentul potrivit. De fapt, primele secunde nu sunt despre argument. Sunt despre <strong>o singură întrebare pe care proprietarul și-o pune instant, înainte să te asculte: „ăsta cine e și cât mă costă timpul lui?"</strong> Până nu răspunzi la asta, tot ce spui după e zgomot.</p>
+
+          <div class="pull">În primele 10 secunde nu vinzi nimic. Faci un singur lucru: scazi tensiunea suficient cât omul să nu mai vrea să închidă. Restul apelului începe abia după asta.</div>
+
+          <h2>Ce se întâmplă de fapt în capul lui în prima secundă</h2>
+
+          <p>Ca să construiești un început bun, trebuie să înțelegi ce aude proprietarul, nu ce spui tu. Când ridică și aude un ton de „agent care sună", trei lucruri se declanșează aproape simultan:</p>
+
+          <ul>
+            <li><strong>Alarma de vânzător.</strong> A mai fost sunat. Creierul lui a învățat un tipar: număr necunoscut + voce entuziastă = cineva vrea ceva de la mine. Reflexul de apărare se aprinde înainte să proceseze conținutul.</li>
+            <li><strong>Frica de a pierde controlul.</strong> El și-a pus anunțul ca să conducă el discuția. Un agent care intră tare îi ia volanul din prima — și reacția firească e să frâneze, adică să închidă.</li>
+            <li><strong>Calculul de timp.</strong> „Cât durează asta?" Dacă nu simte imediat că poate scăpa ușor și că discuția e scurtă, e mai simplu pentru el să taie decât să rămână blocat într-o conversație pe care n-o controlează.</li>
+          </ul>
+
+          <p>Observă că niciunul dintre cele trei nu are legătură cu cât de bun ești tu. Toate sunt despre <strong>senzația de siguranță</strong>. De asta un început bun nu împinge, ci dezarmează.</p>
+
+          <h2>Cele trei lucruri pe care le face un început bun</h2>
+
+          <p>Un deschidere care trece de cele 10 secunde nu e o formulă magică de spus pe nerăsuflate. Face trei mișcări, în ordine, și fiecare răspunde la una dintre fricile de mai sus.</p>
+
+          <div class="layer">
+            <div class="n">1</div>
+            <div>
+              <h3>Spune cine ești, scurt și fără entuziasm forțat</h3>
+              <p>Un ton calm, aproape plictisit, dezactivează alarma de vânzător mai bine decât orice. Nume, o frază despre motivul apelului. Fără „cum sunteți astăzi?", fără energie de call-center.</p>
+            </div>
+          </div>
+
+          <div class="layer">
+            <div class="n">2</div>
+            <div>
+              <h3>Dă-i înapoi controlul, explicit</h3>
+              <p>O propoziție care spune „tu decizi dacă mergem mai departe" îi ia frica de a rămâne blocat. Paradoxal, când îi oferi ieșirea, nu mai simte nevoia s-o folosească.</p>
+            </div>
+          </div>
+
+          <div class="layer">
+            <div class="n">3</div>
+            <div>
+              <h3>Cere un lucru mic și concret, nu întâlnirea</h3>
+              <p>Nu ceri din prima 30 de minute la o cafea. Ceri 20 de secunde de atenție sau o singură întrebare. Un „da" mic e ușor de dat — și deschide ușa pentru următorul.</p>
+            </div>
+          </div>
+
+          <p>Ordinea contează. Dacă ceri întâlnirea înainte să-i dai controlul înapoi, îl pierzi — pentru că exact de asta se temea. Fiecare mișcare o pregătește pe următoarea, iar dacă sari peste una, cea de după sună forțat.</p>
+
+          <h2>Cum sună în practică</h2>
+          <p>Un singur exemplu, ca să vezi cele trei mișcări într-o singură deschidere:</p>
+          <div class="say"><div class="lbl">Proprietar</div><p>„Alo?"</p></div>
+          <div class="say"><div class="lbl">Agent</div><p><em>(cine ești, calm)</em> „Bună ziua, sunt Andrei. V-am văzut anunțul cu apartamentul de pe Aviației." <em>(controlul e al lui)</em> „Vă sun scurt și, dacă nu vă interesează, îmi spuneți și închidem, nicio problemă." <em>(cererea mică)</em> „Am o singură întrebare: îl vindeți ca să vă mutați în ceva mai mare sau e o investiție de care vă desprindeți?"</p></div>
+
+          <p>Observă ce lipsește: nu apare comisionul, nu apare „lucrez cu mulți cumpărători", nu apare nicio promisiune. Apare o întrebare care îl face să vorbească despre <strong>el</strong>. În momentul în care răspunde, nu mai ești un agent care sună — ești o conversație care a început deja.</p>
+
+          <div class="pull">Scopul primelor 10 secunde nu e să convingi. E să câștigi următoarele 30. Fiecare pas cumpără doar pasul următor.</div>
+
+          <h2>Aici se termină teoria</h2>
+          <p>Structura e simplă pe hârtie. La telefon, cu adrenalina apelului, tonul îți sare, vorbești prea repede, iar proprietarul reacționează cum vrea el, nu cum scrie în script. Unul e grăbit și te taie din prima, altul e curios dar suspicios, altul e supărat că l-au mai sunat cinci agenți azi — și pe fiecare îl deschizi altfel. Diferența dintre un apel care ajunge la întâlnire și unul care se închide stă în tonul și în ritmul pe care doar repetiția ți le dă. Pe astea le exersezi în ARENA: dai apeluri către proprietari simulați care chiar reacționează diferit, cu un coach care te oprește pe loc când tonul te-a dat de gol și cu feedback după fiecare apel.</p>
+
+        </div>
+
+        <div class="cta-inline">
+          <div class="card">
+            <div class="kicker">Exersează, nu doar citește</div>
+            <h2 style="margin-bottom:10px;font-family:Georgia,serif">Treci de primele 10 secunde de fiecare dată</h2>
+            <p class="prose" style="margin:0 auto 4px">În ARENA suni proprietari simulați care închid, ezită sau te testează — exact ca în teren. Exersează deschiderea până îți iese calmă și naturală, cu feedback după fiecare apel.</p>
+            <div class="cta-row" style="margin-top:22px">
+              <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+              <a href="blog.html" class="btn ghost">Mai multe articole</a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year">2026</span> B-North · ARENA. Toate drepturile rezervate.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="mailto:contact@arenaforagents.com">Email</a>
+      <a href="https://www.instagram.com/arena_training/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=1271777609354068" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
