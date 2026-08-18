@@ -153,7 +153,17 @@ h2{ font-size: clamp(24px, 3.2vw, 32px); line-height:1.22; margin:0 0 10px; font
 
 .foot-form{ margin-top:28px; padding-top:22px; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; align-items:center; gap:14px 18px; }
 .note{ color:var(--muted); font-size:12.5px; flex:1; min-width:210px; }
-.err{ margin-top:14px; display:none; background:rgba(120,32,38,.3); border:1px solid #7a3a3e; color:#f0b8bb; padding:11px 14px; border-radius:12px; font-size:14px; }
+.err{ margin-top:14px; display:none; background:rgba(120,32,38,.3); border:1px solid #7a3a3e; color:#f0b8bb; padding:11px 14px; border-radius:12px; font-size:14px; line-height:1.5; }
+.err b{ color:#ffd9db; }
+
+/* Câmpurile care lipsesc — marcate vizibil, nu doar anunțate */
+.e-lipsa .in, .e-lipsa .sel, .e-lipsa .ta{
+  border-color:#e0666c; box-shadow:0 0 0 3px rgba(224,102,108,.18);
+}
+.e-lipsa > label{ color:#f0b8bb; }
+.pills.e-lipsa, .e-lipsa > .pills{
+  outline:2px solid #e0666c; outline-offset:7px; border-radius:16px;
+}
 
 .ok{ display:none; text-align:center; padding:24px 6px 12px; }
 .ok .tick{
@@ -431,26 +441,74 @@ footer a:hover{ color:var(--gold-2); }
   var buton = document.getElementById('aeSend');
   var confirmare = document.getElementById('aeOk');
 
-  function arata(text){
-    eroare.textContent = text;
+  function arata(html){
+    eroare.innerHTML = html;
     eroare.style.display = 'block';
-    try { eroare.scrollIntoView({ block:'center', behavior:'smooth' }); } catch(e){}
   }
+
+  // Cutia care trebuie colorată pentru un câmp: fie grupul .f, fie rândul de pastile.
+  function cutia(el){
+    return el.closest('.f') || el.closest('.pills') || el;
+  }
+
+  // Numele câmpului, așa cum îl vede agentul pe ecran.
+  function numeCamp(el){
+    var f = el.closest('.f');
+    if (f){
+      var et = f.querySelector('label');
+      if (et) return et.textContent.replace('*','').trim();
+    }
+    var g = el.closest('.grp');
+    if (g){
+      var h = g.querySelector('.grp-h');
+      if (h) return h.textContent.replace('*','').trim();
+    }
+    return 'un câmp';
+  }
+
+  function curata(){
+    var marcate = form.querySelectorAll('.e-lipsa');
+    for (var i = 0; i < marcate.length; i++) marcate[i].classList.remove('e-lipsa');
+  }
+
+  // Când completezi un câmp marcat, marcajul dispare imediat.
+  form.addEventListener('input', curata);
+  form.addEventListener('change', curata);
 
   form.addEventListener('submit', function(ev){
     ev.preventDefault();
     eroare.style.display = 'none';
+    curata();
 
-    if (!form.checkValidity()){
-      var primul = form.querySelector(':invalid');
-      if (primul){
-        try { primul.focus({preventScroll:true}); primul.scrollIntoView({block:'center',behavior:'smooth'}); } catch(e){}
-      }
-      arata('Mai lipsesc câteva câmpuri obligatorii — sunt marcate cu ✳.');
-      return;
+    var lipsa = [];   // numele câmpurilor, pentru mesaj
+    var cutii = [];   // cutiile de colorat
+
+    var invalide = form.querySelectorAll(':invalid');
+    for (var i = 0; i < invalide.length; i++){
+      var el = invalide[i];
+      var c = cutia(el);
+      if (cutii.indexOf(c) !== -1) continue;   // grupurile de radio apar de mai multe ori
+      cutii.push(c);
+      var n = numeCamp(el);
+      if (lipsa.indexOf(n) === -1) lipsa.push(n);
     }
+
+    // Bifele nu sunt „required" în HTML, deci le verificăm separat.
     if (!form.querySelector('#grp-exers input:checked')){
-      arata('Alege cel puțin un lucru pe care vrei să-l exersezi.');
+      var gc = document.getElementById('grp-exers');
+      cutii.push(gc);
+      lipsa.push('Ce vrei să exersezi');
+    }
+
+    if (lipsa.length){
+      for (var j = 0; j < cutii.length; j++) cutii[j].classList.add('e-lipsa');
+
+      var mesaj = lipsa.length === 1
+        ? 'Mai lipsește un răspuns: <b>' + lipsa[0] + '</b>.'
+        : 'Mai lipsesc ' + lipsa.length + ' răspunsuri: <b>' + lipsa.join('</b>, <b>') + '</b>.';
+      arata(mesaj + ' Le-am încadrat cu roșu mai jos.');
+
+      try { cutii[0].scrollIntoView({ block:'center', behavior:'smooth' }); } catch(e){}
       return;
     }
 
