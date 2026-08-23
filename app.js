@@ -263,7 +263,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     ensureMeta('property', 'og:url', url);
     ensureMeta('property', 'og:site_name', 'ARENA');
     ensureMeta('property', 'og:image', img);
-    ensureMeta('name', 'theme-color', '#0e1116');
+    ensureMeta('name', 'theme-color', '#0e1626');
     ensureMeta('name', 'twitter:card', 'summary_large_image');
     ensureMeta('name', 'twitter:title', title);
     ensureMeta('name', 'twitter:description', desc);
