@@ -244,7 +244,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     var head = document.head;
     var origin = 'https://www.arenaforagents.com';
     var url = origin + location.pathname;
-    var img = origin + '/og-image.png';
+    var img = origin + '/og-image.jpg';
     function ensureMeta(attr, key, val) {
       if (head.querySelector('meta[' + attr + '="' + key + '"]')) return;
       var m = document.createElement('meta');
