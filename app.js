@@ -291,3 +291,15 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   }catch(e){}
 })();
 
+/* ===== Dedupe nav links (remove duplicate Blog etc.) ===== */
+(function(){
+  try{
+    var seen={};
+    document.querySelectorAll('.nav-links a').forEach(function(a){
+      var k=a.textContent.trim().toLowerCase();
+      if(!k) return;
+      if(seen[k]){ a.remove(); } else { seen[k]=1; }
+    });
+  }catch(e){}
+})();
+
