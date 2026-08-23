@@ -271,4 +271,18 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   } catch (e) {}
 })();
 
+/* ===== Swap wordmark for brand logo image ===== */
+(function(){
+  try{
+    document.querySelectorAll('.logo').forEach(function(el){
+      if(el.querySelector('img.brand-logo')) return;
+      var img=document.createElement('img');
+      img.src='/logo.png'; img.alt='ARENA for agents'; img.className='brand-logo';
+      img.style.display='block'; img.style.width='auto';
+      var h=36; if(el.closest('.hero')) h=100; else if(el.closest('footer')) h=30;
+      img.style.height=h+'px';
+      el.textContent=''; el.appendChild(img);
+    });
+  }catch(e){}
+})();
 
