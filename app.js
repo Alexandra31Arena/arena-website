@@ -12,9 +12,9 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   var onBlog = here.indexOf('blog') === 0;
   function addBlogLink(container, active) {
     if (!container) return;
-    if (container.querySelector('a[href="blog.html"]')) return; // deja există (paginile de blog îl au deja)
+    if (container.querySelector('a[href="/blog.html"]')) return; // deja există (paginile de blog îl au deja)
     var a = document.createElement('a');
-    a.href = 'blog.html';
+    a.href = '/blog.html';
     a.textContent = 'Blog';
     if (active) a.className = 'active';
     var contact = container.querySelector('a[href="contact.html"]');
@@ -125,7 +125,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     'confidentialitate.html': { tip: 'WebPage', crumb: 'Confidențialitate',
       nume: 'Politica de confidențialitate',
       desc: 'Ce date personale colectăm, cum le folosim, cu cine le partajăm și ce drepturi ai conform GDPR.' },
-    'blog.html': { tip: 'Blog', crumb: 'Blog',
+    '/blog.html': { tip: 'Blog', crumb: 'Blog',
       nume: 'Blog ARENA',
       desc: 'Ghiduri practice pentru agenți imobiliari: obiecții, exclusivitate, scriptul apelului, turul casei și comisionul — explicate pe pași, cu exemple.' },
     'blog-e-prea-scump.html': { tip: 'BlogPosting', crumb: 'Blog',
@@ -184,7 +184,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   var crumbs = [{ '@type': 'ListItem', position: 1, name: 'ARENA', item: BASE }];
   if (p.crumb) {
     if (p.tip === 'BlogPosting') {
-      crumbs.push({ '@type': 'ListItem', position: 2, name: 'Blog', item: BASE + 'blog.html' });
+      crumbs.push({ '@type': 'ListItem', position: 2, name: 'Blog', item: BASE + '/blog.html' });
       crumbs.push({ '@type': 'ListItem', position: 3, name: p.nume, item: url });
     } else {
       crumbs.push({ '@type': 'ListItem', position: 2, name: p.crumb, item: url });
@@ -270,4 +270,5 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     ensureMeta('name', 'twitter:image', img);
   } catch (e) {}
 })();
+
 
