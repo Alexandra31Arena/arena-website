@@ -237,3 +237,37 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
   document.head.appendChild(s);
 })();
+
+/* ===== SEO meta injection (canonical, OG image, Twitter, favicon, theme) ===== */
+(function () {
+  try {
+    var head = document.head;
+    var origin = 'https://www.arenaforagents.com';
+    var url = origin + location.pathname;
+    var img = origin + '/og-image.png';
+    function ensureMeta(attr, key, val) {
+      if (head.querySelector('meta[' + attr + '="' + key + '"]')) return;
+      var m = document.createElement('meta');
+      m.setAttribute(attr, key);
+      m.setAttribute('content', val);
+      head.appendChild(m);
+    }
+    if (!head.querySelector('link[rel="canonical"]')) {
+      var c = document.createElement('link'); c.rel = 'canonical'; c.href = url; head.appendChild(c);
+    }
+    if (!head.querySelector('link[rel~="icon"]')) {
+      var f = document.createElement('link'); f.rel = 'icon'; f.type = 'image/svg+xml'; f.href = '/favicon.svg'; head.appendChild(f);
+    }
+    var title = document.title;
+    var desc = (head.querySelector('meta[name="description"]') || {}).content || '';
+    ensureMeta('property', 'og:url', url);
+    ensureMeta('property', 'og:site_name', 'ARENA');
+    ensureMeta('property', 'og:image', img);
+    ensureMeta('name', 'theme-color', '#0e1116');
+    ensureMeta('name', 'twitter:card', 'summary_large_image');
+    ensureMeta('name', 'twitter:title', title);
+    ensureMeta('name', 'twitter:description', desc);
+    ensureMeta('name', 'twitter:image', img);
+  } catch (e) {}
+})();
+
