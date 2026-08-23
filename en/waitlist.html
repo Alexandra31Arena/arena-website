@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the waitlist · ARENA (Dubai &amp; Gulf)</title>
+<meta name="description" content="Join the ARENA waitlist — role-play training for real estate agents and agencies in Dubai and the Gulf. Be first to get access at launch.">
+<meta property="og:title" content="Join the ARENA waitlist">
+<meta property="og:description" content="Practice real client conversations, from the first call to the signature. For agents and agencies in Dubai and the Gulf.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="../style.css">
+<style>.wl-form{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:16px}.wl-form label{display:flex;flex-direction:column;gap:6px;font-weight:600;color:var(--text,#e8ecf6)}.wl-form input[type=text],.wl-form input[type=email],.wl-form input:not([type]){background:var(--card,#141c2e);border:1px solid var(--border,#2b3550);border-radius:10px;padding:12px 14px;color:var(--text,#e8ecf6);font-size:16px;font-weight:400}.wl-form input:focus{outline:none;border-color:var(--gold-3,#C9A227)}.wl-role{border:1px solid var(--border,#2b3550);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;color:var(--text,#e8ecf6);font-weight:600}.wl-role .opt{display:flex;align-items:center;gap:10px;font-weight:400;cursor:pointer}.wl-form button{margin-top:6px}.wl-note{color:var(--muted,#a7b0c6);font-size:14px;text-align:center;margin-top:14px}#wl-thanks{display:none;max-width:560px;margin:0 auto;text-align:center;background:var(--card,#141c2e);border:1px solid var(--border,#2b3550);border-radius:14px;padding:34px 24px;color:var(--text,#e8ecf6);font-size:18px}</style></head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="#ce-este">What is</a>
+      <a href="#niveluri">Levels</a>
+      <a href="#beneficii">Why ARENA</a>
+      <a href="#agencies">For agencies</a>
+      <a href="waitlist.html" class="active">Waitlist</a>
+      <a href="../" title="Versiunea in romana">RO</a></div>
+    <a href="waitlist.html" class="btn">Join the waitlist</a>
+  </div>
+</nav>
+
+<main>
+  <section style="padding-top:64px">
+    <div class="wrap">
+      <div class="section-head" style="text-align:center">
+        <div class="kicker">Waitlist</div>
+        <h2>Join the ARENA waitlist</h2>
+        <p>ARENA is coming to Dubai and the Gulf. Leave your details and be first to get access when we launch in your market. Agencies — ask us about team packages.</p>
+      </div>
+      <form class="wl-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfw7iOx25pg7TkRHinsZG-oVRrW6XH6MaHyqrsLsmQd0m2lpQ/formResponse" method="POST" target="hidden_iframe" onsubmit="return wlSubmit()">
+        <label>Full name *<input type="text" name="entry.1440318039" required=""></label>
+        <label>Email *<input type="email" name="entry.1840579961" required=""></label>
+        <label>City &amp; country *<input type="text" name="entry.72980450" placeholder="e.g. Dubai, UAE" required=""></label>
+        <label>Real estate agency<input type="text" name="entry.407920740" placeholder="Optional"></label>
+        <div class="wl-role">I am a *
+          <label class="opt"><input type="radio" name="entry.743639328" value="Real estate agent" required=""> Real estate agent</label>
+          <label class="opt"><input type="radio" name="entry.743639328" value="Agency manager / owner"> Agency manager / owner</label>
+        </div>
+        <button class="btn" type="submit">Join the waitlist</button>
+        <div class="wl-note">We will only use your details to contact you about ARENA.</div>
+      </form>
+      <div id="wl-thanks">Thank you! You are on the list — we will be in touch as soon as ARENA launches in your market.</div>
+      <iframe name="hidden_iframe" style="display:none" title="hidden"></iframe>
+    </div>
+  </section>
+  <script>function wlSubmit(){var f=document.querySelector(".wl-form");setTimeout(function(){f.style.display="none";document.getElementById("wl-thanks").style.display="block";document.getElementById("wl-thanks").scrollIntoView({block:"center"});},700);return true;}</script></main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year"></span> B-North · ARENA. Toate drepturile rezervate.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="#ce-este">What is</a>
+      <a href="#niveluri">Levels</a>
+      <a href="#beneficii">How it works</a>
+      <a href="#ce-este">Who it is for</a>
+      <a href="#agencies">For agencies</a>
+      <a href="waitlist.html">Waitlist</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="mailto:contact@arenaforagents.com">Email</a>
+      <a href="https://www.instagram.com/arena_training/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=1271777609354068" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+
+
+
+</body></html>
+
