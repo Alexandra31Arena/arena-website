@@ -51,7 +51,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     alternateName: 'ARENA Training',
     url: BASE,
     description: 'Platformă de antrenament pentru agenți imobiliari: conversații simulate cu clienți, de la primul apel telefonic până la semnătura pe exclusivitate.',
-    parentOrganization: { '@type': 'Organization', name: 'B-North' },
+    
     email: 'contact@arenaforagents.com',
     telephone: '+40774004974',
     areaServed: { '@type': 'Country', name: 'România' },
