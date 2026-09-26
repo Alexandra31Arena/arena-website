@@ -1,3 +1,13 @@
+// Vercel Web Analytics — măsoară vizitatorii, paginile și sursele de trafic (fără cookies)
+(function () {
+  if (window.va) return;
+  window.va = function () { (window.vaq = window.vaq || []).push(arguments); };
+  var s = document.createElement('script');
+  s.defer = true;
+  s.src = '/_vercel/insights/script.js';
+  document.head.appendChild(s);
+})();
+
 // Anul din footer
 var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
