@@ -1,0 +1,6 @@
+{
+  "redirects": [
+    { "source": "/acces-early.html", "destination": "/preturi.html", "permanent": true },
+    { "source": "/acces-early", "destination": "/preturi.html", "permanent": true }
+  ]
+}
