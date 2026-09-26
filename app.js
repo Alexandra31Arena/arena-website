@@ -26,7 +26,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   var onBlog = here.indexOf('blog') === 0;
   function addBlogLink(container, active) {
     if (!container) return;
-    if (container.querySelector('a[href="/blog.html"]')) return; // deja există (paginile de blog îl au deja)
+    if (container.querySelector('a[href="/blog.html"], a[href="blog.html"]')) return; // deja există (paginile de blog îl au deja)
     var a = document.createElement('a');
     a.href = '/blog.html';
     a.textContent = 'Blog';
