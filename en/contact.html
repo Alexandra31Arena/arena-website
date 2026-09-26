@@ -13,21 +13,35 @@
 <link rel="alternate" hreflang="ro" href="https://www.arenaforagents.com/contact.html" />
 <link rel="alternate" hreflang="x-default" href="https://www.arenaforagents.com/contact.html" />
 <link rel="canonical" href="https://www.arenaforagents.com/en/contact.html" />
+<style>
+.brand-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-icon{display:block;width:40px;height:40px;border-radius:10px}
+@media(max-width:560px){
+  .brand-wrap{gap:8px}
+  .brand-icon{width:32px;height:32px;border-radius:8px}
+  .nav-in{gap:10px;padding:12px 14px}
+  .nav-in > .btn{padding:9px 13px;font-size:12.5px;white-space:nowrap}
+}
+@media(max-width:380px){ .nav-in > .btn{display:none} }
+</style>
 </head>
 <body>
 
 <nav>
   <div class="nav-in">
-    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    <div class="brand-wrap">
+      <a href="index.html" aria-label="ARENA for Agents" style="display:flex"><img class="brand-icon" src="app-icon-128.png" alt="ARENA app icon" width="40" height="40"></a>
+      <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    </div>
     <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
     <div class="nav-links" id="nl">
-      <a href="index.html#ce-este">What is</a>
-      <a href="index.html#niveluri">Levels</a>
-      <a href="index.html#beneficii">Why ARENA</a>
-      <a href="index.html#agencies">For agencies</a>
+      <a href="what-is.html">What is</a>
+      <a href="levels.html">Levels</a>
+      <a href="why-arena.html">Why ARENA</a>
+      <a href="for-agencies.html">For agencies</a>
       <a href="waitlist.html">Waitlist</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="../contact.html" title="Versiunea in romana">RO</a></div>
+      <a href="../contact.html" title="Versiunea în română">RO</a></div>
     <a href="waitlist.html" class="btn">Join the waitlist</a>
   </div>
 </nav>
@@ -92,10 +106,10 @@
       <div style="margin-top:8px;font-size:13px">© <span id="year"></span> ARENA for Agents. All rights reserved.</div>
     </div>
     <div class="foot-nav">
-      <a href="index.html#ce-este">What is</a>
-      <a href="index.html#niveluri">Levels</a>
-      <a href="index.html#beneficii">Why ARENA</a>
-      <a href="index.html#agencies">For agencies</a>
+      <a href="what-is.html">What is</a>
+      <a href="levels.html">Levels</a>
+      <a href="why-arena.html">Why ARENA</a>
+      <a href="for-agencies.html">For agencies</a>
       <a href="waitlist.html">Waitlist</a>
       <a href="contact.html">Contact</a>
     </div>
