@@ -8,6 +8,9 @@
   document.head.appendChild(s);
 })();
 
+// Paginile în engleză (/en/) — nu primesc linkurile și datele structurate în română.
+var IS_EN = location.pathname.indexOf('/en/') === 0;
+
 // Anul din footer
 var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
@@ -16,8 +19,9 @@ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFu
 var APP_URL = "https://arena-arena19.vercel.app";
 document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('href', APP_URL); });
 
-// Link către Blog — adăugat automat în meniu și footer pe toate paginile.
+// Link către Blog — adăugat automat în meniu și footer pe paginile în română.
 (function () {
+  if (IS_EN) return; // blogul e doar în română
   var here = (location.pathname.split('/').pop() || '').toLowerCase();
   var onBlog = here.indexOf('blog') === 0;
   function addBlogLink(container, active) {
@@ -38,14 +42,15 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
 (function () {
   var foot = document.querySelector('.foot-nav');
   if (!foot) return;
-  if (foot.querySelector('a[href="confidentialitate.html"]')) return;
+  if (foot.querySelector('a[href="confidentialitate.html"], a[href="/confidentialitate.html"]')) return;
   var a = document.createElement('a');
-  a.href = 'confidentialitate.html';
-  a.textContent = 'Confidențialitate';
+  a.href = '/confidentialitate.html';
+  a.textContent = IS_EN ? 'Privacy' : 'Confidențialitate';
   foot.appendChild(a);
 })();
 /* ===== Date structurate pentru Google (JSON-LD) ===== */
 (function () {
+  if (IS_EN) return; // datele structurate de mai jos descriu doar paginile în română
   var BASE = 'https://www.arenaforagents.com/';
   var page = (location.pathname.split('/').pop() || '').toLowerCase();
   if (!page || page === 'index.html') page = 'index.html';
