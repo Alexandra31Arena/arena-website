@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cere un cont demo · ARENA</title>
+<meta name="description" content="Cere un cont demo ARENA pentru tine sau echipa ta. Completează formularul și îți trimitem pe e-mail un cod demo cu 3 apeluri și 3 intrări la Nivel 2. Fără card." />
+<meta property="og:title" content="Cere un cont demo · ARENA" />
+<meta property="og:description" content="Completează formularul și îți trimitem pe e-mail un cod demo cu 3 apeluri și 3 intrări la Nivel 2. Fără card, fără plată." />
+<meta property="og:type" content="website" />
+<meta name="robots" content="noindex, follow" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+<link rel="canonical" href="https://www.arenaforagents.com/cere-demo.html" />
+<style>
+  .demo-wrap{max-width:600px;margin:0 auto}
+  .form-demo{display:grid;gap:16px;margin-top:4px}
+  .camp{display:flex;flex-direction:column;gap:6px}
+  .camp label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted,#a7b0c6);font-weight:600}
+  .camp label .req{color:var(--gold-3,#C9A227)}
+  .camp input{background:var(--card-2,#182135);border:1px solid var(--border,#2b3550);border-radius:12px;
+    color:var(--text,#e8ecf6);padding:12px 14px;font-size:15px;font-family:inherit;width:100%;box-sizing:border-box}
+  .camp input:focus{outline:none;border-color:var(--gold-3,#C9A227);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+  .camp input::placeholder{color:#6b7690}
+  .rand-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:520px){.rand-2{grid-template-columns:1fr}}
+  .btn.trimite{width:100%;justify-content:center;font-size:16px;padding:15px 22px;margin-top:6px;cursor:pointer;border:none}
+  .btn.trimite[disabled]{opacity:.6;cursor:default}
+  .form-nota{font-size:13px;color:var(--muted,#a7b0c6);text-align:center;margin-top:2px}
+  .form-eroare{color:#ff9d9d;font-size:14px;text-align:center;margin-top:4px}
+  .form-ok{text-align:center;padding:8px 0}
+  .form-ok .badge{font-size:44px;color:var(--green,#8fd6a0);line-height:1}
+  .form-ok h3{margin:12px 0 8px}
+  .form-ok p{color:var(--muted,#a7b0c6);margin:0}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    <button class="nav-toggle" aria-label="Meniu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="preturi.html">Cumpără acum</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://arena-arena19.vercel.app" class="btn app-link">Intră în arenă</a>
+  </div>
+</nav>
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <div class="kicker">Demo gratuit</div>
+    <h1>Cere un cont demo</h1>
+    <p class="lead">Completează formularul și îți trimitem pe e-mail un <b>cod demo</b> cu <b>3 apeluri</b> la Nivel 1 și <b>3 intrări</b> la Nivel 2 — ca să încerci ARENA cu echipa ta. Fără card, fără plată.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="card demo-wrap">
+      <div id="formZona">
+        <h3 class="ttl">Datele tale</h3>
+        <form class="form-demo" id="formDemo" novalidate>
+          <div class="camp">
+            <label for="agentie">Agenția <span class="req">*</span></label>
+            <input id="agentie" name="agentie" type="text" autocomplete="organization" placeholder="Numele agenției" required />
+          </div>
+          <div class="rand-2">
+            <div class="camp">
+              <label for="persoana">Persoana de contact <span class="req">*</span></label>
+              <input id="persoana" name="persoana" type="text" autocomplete="name" placeholder="Nume și prenume" required />
+            </div>
+            <div class="camp">
+              <label for="telefon">Telefon <span class="req">*</span></label>
+              <input id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="07xx xxx xxx" required />
+            </div>
+          </div>
+          <div class="camp">
+            <label for="email">E-mail <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="adresa@exemplu.ro" required />
+          </div>
+          <div class="rand-2">
+            <div class="camp">
+              <label for="oras">Oraș</label>
+              <input id="oras" name="oras" type="text" autocomplete="address-level2" placeholder="Orașul tău" />
+            </div>
+            <div class="camp">
+              <label for="nr_agenti">Număr agenți</label>
+              <input id="nr_agenti" name="nr_agenti" type="text" inputmode="numeric" placeholder="ex. 5" />
+            </div>
+          </div>
+          <button type="submit" class="btn trimite" id="btnTrimite">Trimite cererea</button>
+          <div class="form-eroare" id="eroare" role="alert"></div>
+          <p class="form-nota">Îți răspundem pe e-mail cu codul demo, cât de repede putem.</p>
+        </form>
+      </div>
+      <div id="okZona" class="form-ok" style="display:none">
+        <div class="badge">✓</div>
+        <h3 class="ttl">Cererea a fost trimisă</h3>
+        <p>Îți trimitem codul demo pe e-mailul lăsat, cât de repede putem. Verifică și folderul de spam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="padding-top:6px">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">Ce încerci în demo</div><h2>Exact ca la varianta completă</h2></div>
+    <div class="card demo-wrap">
+      <p class="muted" style="margin:0 0 14px">Cu codul demo, tu și echipa ta primiți:</p>
+      <ul style="list-style:none;margin:0;padding:0">
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span><b>Apeluri reale</b> cu clienți AI — la telefon și la întâlnire.</li>
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span><b>Feedback de la coach</b> după fiecare apel: ce ai făcut bine și ce corectezi.</li>
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span>Vezi și <b>panoul de agenție</b>, așa cum îl are un manager cu echipa lui.</li>
+        <li style="position:relative;padding:0 0 0 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span>Totul în <b>română</b>, direct din browser — pe telefon sau pe laptop.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year"></span> ARENA for Agents. Toate drepturile rezervate.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="ce-este.html">Ce este</a>
+      <a href="niveluri.html">Niveluri</a>
+      <a href="cum-functioneaza.html">Cum funcționează</a>
+      <a href="pentru-cine.html">Pentru cine</a>
+      <a href="pentru-agentii.html">Pentru agenții</a>
+      <a href="preturi.html">Cumpără acum</a>
+      <a href="etica-si-siguranta.html">Etică și siguranță</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <a href="mailto:contact@arenaforagents.com">Email</a>
+      <a href="https://www.instagram.com/arena_training/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=1271777609354068" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+<script>
+  (function(){
+    var y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+    var API_BASE="https://arena-arena19.vercel.app";
+    var ENDPOINT=API_BASE+"/api/cerere-demo";
+    var form=document.getElementById('formDemo');
+    var btn=document.getElementById('btnTrimite');
+    var eroare=document.getElementById('eroare');
+    var formZona=document.getElementById('formZona');
+    var okZona=document.getElementById('okZona');
+    function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+    if(form){
+      form.addEventListener('submit',async function(e){
+        e.preventDefault();
+        eroare.textContent='';
+        var c={agentie:val('agentie'),persoana:val('persoana'),telefon:val('telefon'),email:val('email'),oras:val('oras'),nr_agenti:val('nr_agenti')};
+        if(!c.agentie||!c.persoana||!c.telefon||!(c.email.indexOf('@')>0&&c.email.length>4)){
+          eroare.textContent='Completează agenția, persoana de contact, telefonul și un e-mail valid.';
+          return;
+        }
+        btn.disabled=true; var etichetaVeche=btn.textContent; btn.textContent='Se trimite…';
+        try{
+          var r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(c)});
+          var j=await r.json().catch(function(){return {};});
+          if(r.ok&&j.ok){ formZona.style.display='none'; okZona.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); return; }
+          eroare.textContent=(j&&j.mesaj)?j.mesaj:'Ceva n-a mers. Mai încearcă.';
+        }catch(err){
+          eroare.textContent='Nu am putut trimite cererea. Verifică conexiunea și mai încearcă.';
+        }
+        btn.disabled=false; btn.textContent=etichetaVeche;
+      });
+    }
+  })();
+</script>
+<script src="app.js"></script>
+</body>
+</html>
