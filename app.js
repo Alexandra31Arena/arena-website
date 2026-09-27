@@ -68,7 +68,6 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     description: 'Platformă de antrenament pentru agenți imobiliari: conversații simulate cu clienți, de la primul apel telefonic până la semnătura pe exclusivitate.',
     
     email: 'contact@arenaforagents.com',
-    telephone: '+40774004974',
     areaServed: { '@type': 'Country', name: 'România' },
     sameAs: [
       'https://www.instagram.com/arena_training/',
@@ -78,7 +77,6 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
       '@type': 'ContactPoint',
       contactType: 'customer support',
       email: 'contact@arenaforagents.com',
-      telephone: '+40774004974',
       availableLanguage: ['ro']
     }]
   };
@@ -136,7 +134,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
       desc: 'Respect pentru om, preț onest, transparență, confidențialitate și siguranța proprietarului. ARENA te antrenează să lucrezi corect, nu doar convingător.' },
     'contact.html': { tip: 'ContactPage', crumb: 'Contact',
       nume: 'Contact ARENA',
-      desc: 'Email contact@arenaforagents.com, telefon +40 774 004 974, Instagram @arena_training și Facebook ARENA Training.' },
+      desc: 'Email contact@arenaforagents.com, Instagram @arena_training și Facebook ARENA Training.' },
     'confidentialitate.html': { tip: 'WebPage', crumb: 'Confidențialitate',
       nume: 'Politica de confidențialitate',
       desc: 'Ce date personale colectăm, cum le folosim, cu cine le partajăm și ce drepturi ai conform GDPR.' },
