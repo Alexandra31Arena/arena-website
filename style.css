@@ -194,3 +194,6 @@ footer{flex-shrink:0;padding:46px 0 40px;border-top:1px solid rgba(255,255,255,.
 .badge.ready{color:var(--green);border:1px solid rgba(143,214,160,.42)}
 .badge.train{color:var(--gold-2);border:1px solid rgba(232,206,122,.42)}
 @media(max-width:820px){.bar-progress{max-width:150px}.badge{display:none}}
+
+/* adresa de e-mail din subsol: text, nu link (nu mai deschide clientul de mail) */
+.foot-mail{color:var(--muted)}
