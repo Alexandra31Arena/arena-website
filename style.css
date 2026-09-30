@@ -30,8 +30,8 @@ nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
   border-bottom:1px solid rgba(255,255,255,.06)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 22px;max-width:1280px;margin:0 auto}
 .nav-in .logo{font-size:20px}
-.nav-links{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
-.nav-links a{color:var(--muted);font-size:13.5px;letter-spacing:.01em;white-space:nowrap}
+.nav-links{display:flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{color:var(--muted);font-size:13px;letter-spacing:.01em;white-space:nowrap}
 .nav-links a:hover,.nav-links a.active{color:var(--text)}
 .nav-links a.active{color:var(--gold-2)}
 .btn{display:inline-block;flex:none;font-weight:700;border-radius:999px;padding:12px 22px;font-size:14px;letter-spacing:.03em;
