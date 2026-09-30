@@ -10,6 +10,29 @@
 <meta property="og:type" content="website" />
 <link rel="stylesheet" href="style.css" />
 <link rel="canonical" href="https://www.arenaforagents.com/contact.html" />
+<style>
+  .msg-wrap{max-width:640px;margin:0 auto}
+  .form-msg{display:grid;gap:16px;margin-top:4px}
+  .camp{display:flex;flex-direction:column;gap:6px}
+  .camp label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted,#a7b0c6);font-weight:600}
+  .camp label .req{color:var(--gold-3,#C9A227)}
+  .camp input,.camp textarea{background:rgba(9,15,28,.55);border:1px solid rgba(255,255,255,.18);border-radius:12px;
+    color:var(--text,#e8ecf6);padding:12px 14px;font-size:15px;font-family:inherit;width:100%;box-sizing:border-box}
+  .camp textarea{min-height:140px;resize:vertical;line-height:1.5}
+  .camp input:focus,.camp textarea:focus{outline:none;border-color:var(--gold-3,#C9A227);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+  .camp input::placeholder,.camp textarea::placeholder{color:#8f99b2}
+  .rand-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:520px){.rand-2{grid-template-columns:1fr}}
+  .btn.trimite{width:100%;justify-content:center;font-size:16px;padding:15px 22px;margin-top:6px;cursor:pointer;border:none}
+  .btn.trimite[disabled]{opacity:.6;cursor:default}
+  .form-nota{font-size:13px;color:var(--muted,#a7b0c6);text-align:center;margin-top:2px}
+  .form-eroare{color:#ff9d9d;font-size:14px;text-align:center;margin-top:4px}
+  .form-ok{text-align:center;padding:8px 0}
+  .form-ok .badge{font-size:44px;color:var(--green,#8fd6a0);line-height:1}
+  .form-ok h3{margin:12px 0 8px}
+  .form-ok p{color:var(--muted,#a7b0c6);margin:0}
+  .capcana{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+</style>
 </head>
 <body>
 <nav>
@@ -47,7 +70,7 @@
         <div class="contact-line"><span class="ic">✉</span><span>contact@arenaforagents.com</span></div>
         <div class="contact-line"><span class="ic">◎</span><a href="https://www.instagram.com/arenaforagents/" target="_blank" rel="noopener">@arenaforagents pe Instagram</a></div>
         <div class="contact-line"><span class="ic">f</span><a href="https://www.facebook.com/profile.php?id=61593132510079" target="_blank" rel="noopener">ARENA for Agents pe Facebook</a></div>
-        <a href="cere-demo.html" class="btn" style="margin-top:22px">Scrie-ne prin formular</a>
+        <a href="#scrie-ne" class="btn" style="margin-top:22px">Scrie-ne prin formular</a>
       </div>
       <div class="card" style="text-align:center">
         <div class="logo" style="font-size:40px;justify-content:center"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
@@ -58,6 +81,39 @@
     </div>
   </div>
 </section>
+
+<section id="scrie-ne">
+  <div class="wrap">
+    <div class="kicker" style="text-align:center">Scrie-ne</div>
+    <h2 style="text-align:center">Spune-ne cu ce te putem ajuta</h2>
+    <p class="muted" style="text-align:center;max-width:56ch;margin:0 auto 30px">Completează câmpurile de mai jos și mesajul ajunge direct la noi. Îți răspundem pe e-mail.</p>
+    <div class="card msg-wrap">
+      <div id="msgZona">
+        <form id="formMesaj" class="form-msg" novalidate>
+          <div class="capcana"><label>Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="rand-2">
+            <div class="camp"><label for="nume">Nume <span class="req">*</span></label><input type="text" id="nume" placeholder="Nume și prenume" autocomplete="name"></div>
+            <div class="camp"><label for="telefon">Telefon</label><input type="tel" id="telefon" placeholder="07xx xxx xxx" autocomplete="tel"></div>
+          </div>
+          <div class="rand-2">
+            <div class="camp"><label for="email">E-mail <span class="req">*</span></label><input type="email" id="email" placeholder="adresa@exemplu.ro" autocomplete="email"></div>
+            <div class="camp"><label for="agentie">Agenția</label><input type="text" id="agentie" placeholder="Numele agenției"></div>
+          </div>
+          <div class="camp"><label for="mesaj">Mesajul tău <span class="req">*</span></label><textarea id="mesaj" placeholder="Scrie aici întrebarea sau ce ai nevoie."></textarea></div>
+          <button type="submit" id="btnMesaj" class="btn trimite">Trimite mesajul</button>
+          <div class="form-eroare" id="eroareMesaj"></div>
+          <div class="form-nota">Îți răspundem pe e-mail, cât de repede putem.</div>
+        </form>
+      </div>
+      <div id="msgOk" class="form-ok" style="display:none">
+        <div class="badge">✓</div>
+        <h3>Mesajul a plecat</h3>
+        <p>Îți răspundem pe e-mail cât de repede putem. Mulțumim!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section style="padding-top:6px">
   <div class="wrap">
     <div class="section-head"><div class="kicker">Întrebări frecvente</div><h2>Ce vrei să știi înainte</h2></div>
@@ -105,5 +161,36 @@
   </div>
 </footer>
 <script src="app.js"></script>
+<script>
+(function(){
+  var ENDPOINT = "https://arena-arena19.vercel.app/api/contact";
+  var form = document.getElementById('formMesaj');
+  var btn  = document.getElementById('btnMesaj');
+  var eroare = document.getElementById('eroareMesaj');
+  var zona = document.getElementById('msgZona');
+  var ok   = document.getElementById('msgOk');
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  if (!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    eroare.textContent = '';
+    var c = { nume: val('nume'), email: val('email'), telefon: val('telefon'), agentie: val('agentie'), mesaj: val('mesaj'), website: val('website') };
+    if (!c.nume || !(c.email.indexOf('@') > 0 && c.email.length > 4) || c.mesaj.length < 5) {
+      eroare.textContent = 'Completează numele, un e-mail valid și mesajul.';
+      return;
+    }
+    btn.disabled = true; var eticheta = btn.textContent; btn.textContent = 'Se trimite…';
+    try {
+      var r = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(c) });
+      var j = await r.json().catch(function(){ return {}; });
+      if (r.ok && j.ok) { zona.style.display='none'; ok.style.display='block'; ok.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+      eroare.textContent = (j && j.mesaj) ? j.mesaj : 'Ceva n-a mers. Mai încearcă.';
+    } catch (err) {
+      eroare.textContent = 'Nu am putut trimite mesajul. Verifică conexiunea și mai încearcă.';
+    }
+    btn.disabled = false; btn.textContent = eticheta;
+  });
+})();
+</script>
 </body>
 </html>
