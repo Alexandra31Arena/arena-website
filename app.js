@@ -19,7 +19,9 @@ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFu
 // Când setezi app.arenaforagents.com, schimbă doar linia de mai jos.
 var APP_URL = "https://arena-arena19.vercel.app";
 // Pe paginile în franceză, aplicația primește ?lang=fr (o deschide direct în franceză).
-var APP_HREF = IS_FR ? APP_URL + "/?lang=fr" : APP_URL;
+// Pe paginile în engleză (ediția Emirate), aplicația primește ?country=ae (o deschide direct în ediția UAE).
+var IS_EN_ONLY = location.pathname.indexOf('/en/') === 0;
+var APP_HREF = IS_FR ? APP_URL + "/?lang=fr" : (IS_EN_ONLY ? APP_URL + "/?country=ae" : APP_URL);
 document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('href', APP_HREF); });
 
 // Link către Blog — adăugat automat în meniu și footer pe paginile în română.
@@ -332,4 +334,18 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
     a.textContent = 'FR';
     nav.appendChild(a);
   }catch(e){}
+})();
+
+// Pagina de prețuri pentru Emirate (/en/pricing.html) se vede doar din Emirate (regula din vercel.json).
+// Linkul „Pricing” din meniu e ascuns implicit și apare doar dacă pagina chiar se deschide pentru acest vizitator.
+(function () {
+  var links = document.querySelectorAll('.nav-pricing');
+  if (!links.length) return;
+  try {
+    fetch('/en/pricing.html' + (location.search.indexOf('view=ae') > -1 ? '?view=ae' : ''), { method: 'HEAD', redirect: 'manual', cache: 'no-store' })
+      .then(function (r) {
+        if (r.ok && r.type !== 'opaqueredirect') links.forEach(function (a) { a.classList.add('on'); });
+      })
+      .catch(function () {});
+  } catch (e) {}
 })();

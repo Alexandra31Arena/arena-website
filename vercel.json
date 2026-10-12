@@ -1,6 +1,25 @@
 {
   "redirects": [
     { "source": "/acces-early.html", "destination": "/preturi.html", "permanent": true },
-    { "source": "/acces-early", "destination": "/preturi.html", "permanent": true }
+    { "source": "/acces-early", "destination": "/preturi.html", "permanent": true },
+
+    { "source": "/en/waitlist.html", "destination": "/en/", "permanent": true },
+    { "source": "/en/waitlist", "destination": "/en/", "permanent": true },
+
+    {
+      "source": "/en/pricing(.html)?",
+      "missing": [
+        { "type": "header", "key": "x-vercel-ip-country", "value": "AE" },
+        { "type": "query", "key": "view", "value": "ae" }
+      ],
+      "destination": "/en/",
+      "permanent": false
+    },
+    {
+      "source": "/preturi(.html)?",
+      "has": [ { "type": "header", "key": "x-vercel-ip-country", "value": "AE" } ],
+      "destination": "/en/pricing.html",
+      "permanent": false
+    }
   ]
 }

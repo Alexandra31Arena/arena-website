@@ -197,3 +197,9 @@ footer{flex-shrink:0;padding:46px 0 40px;border-top:1px solid rgba(255,255,255,.
 
 /* adresa de e-mail din subsol: text, nu link (nu mai deschide clientul de mail) */
 .foot-mail{color:var(--muted)}
+
+/* Linkul spre prețurile pentru Emirate: ascuns până confirmă app.js că pagina e disponibilă vizitatorului */
+.nav-pricing:not(.on){display:none}
+
+/* Subsol: linkurile sociale trec pe rândul următor pe ecrane înguste (altfel LinkedIn ieșea din pagină pe mobil) */
+.foot-social{flex-wrap:wrap;row-gap:8px}
