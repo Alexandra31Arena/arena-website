@@ -8,8 +8,9 @@
   document.head.appendChild(s);
 })();
 
-// Paginile în engleză (/en/) — nu primesc linkurile și datele structurate în română.
-var IS_EN = location.pathname.indexOf('/en/') === 0;
+// Paginile în engleză (/en/) și franceză (/fr/) — nu primesc linkurile și datele structurate în română.
+var IS_FR = /^\/fr(\/|$)/.test(location.pathname);
+var IS_EN = location.pathname.indexOf('/en/') === 0 || IS_FR; // IS_EN = „nu e pagină în română”
 
 // Anul din footer
 var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
@@ -17,7 +18,9 @@ var y = document.getElementById('year'); if (y) y.textContent = new Date().getFu
 // Adresa aplicației — toate butoanele „Intră în arenă" duc în aplicație.
 // Când setezi app.arenaforagents.com, schimbă doar linia de mai jos.
 var APP_URL = "https://arena-arena19.vercel.app";
-document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('href', APP_URL); });
+// Pe paginile în franceză, aplicația primește ?lang=fr (o deschide direct în franceză).
+var APP_HREF = IS_FR ? APP_URL + "/?lang=fr" : APP_URL;
+document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('href', APP_HREF); });
 
 // Link către Blog — adăugat automat în meniu și footer pe paginile în română.
 (function () {
@@ -45,7 +48,7 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   if (foot.querySelector('a[href="confidentialitate.html"], a[href="/confidentialitate.html"]')) return;
   var a = document.createElement('a');
   a.href = '/confidentialitate.html';
-  a.textContent = IS_EN ? 'Privacy' : 'Confidențialitate';
+  a.textContent = IS_FR ? 'Confidentialité' : (IS_EN ? 'Privacy' : 'Confidențialitate');
   foot.appendChild(a);
 })();
 /* ===== Date structurate pentru Google (JSON-LD) ===== */

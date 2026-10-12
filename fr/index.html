@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARENA · Formation à la prise de mandat par simulation pour agents immobiliers</title>
+<meta name="description" content="ARENA, le simulateur d’entraînement commercial pour agents immobiliers et mandataires : exercez-vous face à des propriétaires vendeurs simulés, de l’appel de prospection à la signature du mandat exclusif.">
+<meta name="keywords" content="formation agent immobilier, formation prise de mandat, mandat exclusif, simulateur agent immobilier, jeu de rôle immobilier, formation mandataire immobilier, prospection immobilière">
+<meta property="og:title" content="ARENA · L’entraînement qui fait de la prise de mandat un réflexe">
+<meta property="og:description" content="Simulateur de conversations pour agents immobiliers et mandataires : de l’appel de prospection à la signature du mandat exclusif.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.arenaforagents.com/fr/">
+<meta property="og:site_name" content="ARENA">
+<meta property="og:locale" content="fr_FR">
+<link rel="stylesheet" href="../style.css">
+<link rel="alternate" hreflang="fr" href="https://www.arenaforagents.com/fr/"><link rel="alternate" hreflang="ro" href="https://www.arenaforagents.com/"><link rel="alternate" hreflang="en" href="https://www.arenaforagents.com/en/"><link rel="alternate" hreflang="x-default" href="https://www.arenaforagents.com/"><link rel="canonical" href="https://www.arenaforagents.com/fr/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.arenaforagents.com/#organization",
+      "name": "ARENA",
+      "alternateName": "ARENA for Agents",
+      "url": "https://www.arenaforagents.com/",
+      "email": "contact@arenaforagents.com",
+      "sameAs": ["https://www.linkedin.com/company/arenaforagents/"]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.arenaforagents.com/fr/#page",
+      "url": "https://www.arenaforagents.com/fr/",
+      "name": "ARENA · Formation à la prise de mandat par simulation",
+      "inLanguage": "fr-FR",
+      "publisher": { "@id": "https://www.arenaforagents.com/#organization" }
+    },
+    {
+      "@type": "Course",
+      "name": "ARENA — Formation commerciale par simulation pour agents immobiliers",
+      "description": "Formation pratique à la prospection et à la prise de mandat exclusif, sous forme de jeu de rôle avec des propriétaires vendeurs simulés, un coach en temps réel et un verdict à la fin de chaque conversation.",
+      "url": "https://www.arenaforagents.com/fr/",
+      "inLanguage": "fr-FR",
+      "provider": { "@id": "https://www.arenaforagents.com/#organization" },
+      "hasCourseInstance": [{ "@type": "CourseInstance", "courseMode": "online", "inLanguage": "fr-FR" }]
+    }
+  ]
+}
+</script>
+<style>
+.brand-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-icon{display:block;width:40px;height:40px;border-radius:10px}
+@media(max-width:560px){
+  .brand-wrap{gap:8px}
+  .brand-icon{width:32px;height:32px;border-radius:8px}
+  .nav-in{gap:10px;padding:12px 14px}
+  .nav-in > .btn{padding:9px 13px;font-size:12.5px;white-space:nowrap}
+}
+@media(max-width:380px){ .nav-in > .btn{display:none} }
+
+/* coach (maquette) */
+.coach-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.coach-grid .prose{margin:0}
+@media(max-width:820px){ .coach-grid{grid-template-columns:1fr} }
+
+/* tarifs */
+.price-card{display:flex;flex-direction:column}
+.price-card .tag{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2);margin-bottom:12px}
+.price-card h3{font-family:Georgia,serif;font-size:24px;margin-bottom:10px}
+.price-card p{color:var(--muted);margin-bottom:14px}
+.price-card ul{list-style:none;margin:0 0 22px;display:grid;gap:9px}
+.price-card li{display:flex;gap:10px;align-items:flex-start;color:var(--text);font-size:15px}
+.price-card li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;margin-top:8px;
+  background:linear-gradient(180deg,var(--gold-1),var(--gold-3));box-shadow:0 0 8px rgba(201,162,39,.5)}
+.price-card .actions{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap}
+.guarantee{display:flex;gap:16px;align-items:center;max-width:820px;margin:26px auto 0;
+  background:linear-gradient(180deg,rgba(201,162,39,.15),rgba(201,162,39,.05));
+  border:1px solid rgba(201,162,39,.42);border-radius:16px;padding:16px 20px}
+.guarantee svg{flex:none;color:var(--gold-2)}
+.guarantee h3{font-size:16px;margin-bottom:3px}
+.guarantee p{font-size:14px;color:var(--muted)}
+.guarantee b{color:var(--gold-1)}
+
+/* formulaire devis agences */
+.msg-wrap{max-width:640px;margin:0 auto}
+.form-msg{display:grid;gap:16px;margin-top:4px}
+.camp{display:flex;flex-direction:column;gap:6px}
+.camp label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:600}
+.camp label .req{color:var(--gold-3)}
+.camp input,.camp textarea{background:rgba(9,15,28,.55);border:1px solid rgba(255,255,255,.18);border-radius:12px;
+  color:var(--text);padding:12px 14px;font-size:15px;font-family:inherit;width:100%}
+.camp textarea{min-height:120px;resize:vertical;line-height:1.5}
+.camp input:focus,.camp textarea:focus{outline:none;border-color:var(--gold-3);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+.camp input::placeholder,.camp textarea::placeholder{color:#8f99b2}
+.rand-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){ .rand-2{grid-template-columns:1fr} }
+.btn.trimite{width:100%;font-size:16px;padding:15px 22px;margin-top:6px;cursor:pointer;border:none;text-align:center}
+.btn.trimite[disabled]{opacity:.6;cursor:default}
+.form-nota{font-size:13px;color:var(--muted);text-align:center}
+.form-eroare{color:#ff9d9d;font-size:14px;text-align:center}
+.form-ok{display:none;text-align:center;padding:8px 0}
+.form-ok .ok-ico{font-size:44px;color:var(--green);line-height:1}
+.form-ok h3{margin:12px 0 8px}
+.form-ok p{color:var(--muted)}
+.capcana{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand-wrap">
+      <a href="index.html" aria-label="ARENA for Agents" style="display:flex"><img class="brand-icon" src="../en/app-icon-128.png" alt="Icône de l’application ARENA" width="40" height="40"></a>
+      <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="#concept">Le concept</a>
+      <a href="#niveaux">Les niveaux</a>
+      <a href="#coach">Le coach</a>
+      <a href="#agences">Pour les agences</a>
+      <a href="#tarifs">Acheter</a>
+      <a href="#devis">Contact</a>
+      <a href="../" title="Versiunea în română">RO</a>
+      <a href="../en/" title="English version">EN</a>
+    </div>
+    <a href="#" class="btn app-link">Entrer dans l’arène</a>
+  </div>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Formation commerciale par simulation · agents immobiliers et mandataires</div>
+    <div class="logo" style="font-size:64px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+    <div class="sub-brand">for Agents</div>
+    <h1>L’entraînement qui fait de la prise de mandat un réflexe.</h1>
+    <p class="lead">Entraînez-vous face à des propriétaires vendeurs simulés, du premier appel jusqu’à la signature du mandat exclusif. Sans risque, et sans perdre un seul mandat sur une erreur de débutant. Pensé pour le marché de Paris et de l’Île-de-France.</p>
+    <div class="cta-row">
+      <a href="#tarifs" class="btn">Acheter l’accès</a>
+      <a href="#" class="btn ghost app-link">Entrer dans l’arène</a>
+      <a href="#niveaux" class="btn ghost">Découvrir les niveaux</a>
+    </div>
+  </div>
+</header>
+
+<section id="concept">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Le concept</div>
+      <h2>Un simulateur où vos erreurs ne vous coûtent aucun mandat</h2>
+      <p>ARENA est une formation commerciale pratique, sous forme de jeu de rôle. Vous menez de vraies conversations avec des propriétaires simulés, si proches de la réalité que, le jour où vous serez face à un vrai vendeur, vous aurez déjà vécu la scène des dizaines de fois. Chaque phrase, chaque objection, chaque visite : répétées jusqu’à devenir naturelles.</p>
+    </div>
+  </div>
+</section>
+
+<section id="niveaux" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Les niveaux</div>
+      <h2>Du premier appel à la signature</h2>
+    </div>
+    <div class="grid-2">
+      <div class="card level">
+        <div class="tag">Niveau 1 · Ouvert</div>
+        <h3>L’appel de prospection</h3>
+        <p>Décrochez le rendez-vous d’estimation dès le premier appel. 15 propriétaires, du plus accommodant au plus coriace. Vous apprenez à dépasser le « ça ne m’intéresse pas » et le « je vends entre particuliers », et à obtenir le rendez-vous.</p>
+        <div class="meta">15 propriétaires &nbsp;·&nbsp; du plus facile au plus difficile &nbsp;·&nbsp; attestation à la clé</div>
+      </div>
+      <div class="card level">
+        <div class="tag">Niveau 2 · Ouvert</div>
+        <h3>Le rendez-vous d’estimation</h3>
+        <p>La visite du bien, la discussion sur le prix, la signature du mandat exclusif. 9 personnages, chacun avec son histoire et ses objections : de la famille qui déménage au propriétaire qui veut « confier le bien à plusieurs agences ».</p>
+        <div class="meta">9 personnages &nbsp;·&nbsp; visite + prix + exclusivité &nbsp;·&nbsp; verdict à la fin</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px"><a href="#tarifs" class="btn ghost">Acheter l’accès</a></div>
+  </div>
+</section>
+
+<section id="coach">
+  <div class="wrap coach-grid">
+    <div class="prose">
+      <div class="kicker">Le coach</div>
+      <h2>Un coach à vos côtés, au moment où tout se joue</h2>
+      <p>Pendant la conversation, le coach vous indique la bonne direction, au moment précis où vous en avez besoin. À la fin, vous recevez un verdict honnête : ce que vous avez bien fait, et ce qu’il vous reste à travailler.</p>
+      <p>Vous ne mémorisez pas un script : vous apprenez à réagir comme un professionnel, face à un propriétaire qui hésite, qui doute ou qui résiste.</p>
+    </div>
+    <div class="mock" aria-label="Exemple de conversation dans ARENA">
+      <div class="mock-cap">Niveau 1 · Appel de prospection</div>
+      <div class="who">Propriétaire</div>
+      <div class="bubble them">J’ai déjà eu trois agences au téléphone cette semaine. Franchement, je pense vendre moi-même.</div>
+      <div class="who" style="text-align:right">Vous</div>
+      <div class="bubble you">Je comprends tout à fait. Qu’est-ce qui vous a fait hésiter avec les agences jusqu’ici ?</div>
+      <div class="coachbox">
+        <span class="pill">Coach</span>
+        <b>Bonne réaction : vous ne défendez pas l’agence, vous posez une question.</b>
+        <p>Laissez-le exprimer ses doutes. C’est là que vous trouverez votre meilleur argument pour obtenir le rendez-vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avantages">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Pourquoi ARENA</div>
+      <h2>Un vrai entraînement, pas un cours théorique</h2>
+    </div>
+    <div class="grid-3">
+      <div class="feat"><div class="dot"></div><div><h4>Un coach en temps réel</h4><p>Le bon conseil au moment où vous en avez besoin, pas une fois l’erreur commise.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Des personnages réalistes</h4><p>Des propriétaires avec leurs émotions, leurs hésitations et leurs objections, comme dans la vraie vie.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Un retour après chaque échange</h4><p>Un verdict honnête à la fin de chaque rendez-vous, avec les points précis à améliorer.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Des progrès mesurables</h4><p>Suivez votre évolution : crédibilité, découverte, prix, conclusion.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Pensé pour le marché français</h4><p>Mandat exclusif, honoraires, vente entre particuliers : les situations que vous vivez à Paris et en Île-de-France.</p></div></div>
+      <div class="feat"><div class="dot"></div><div><h4>Sur tous vos appareils</h4><p>Entraînez-vous sur votre téléphone ou votre ordinateur, dès que vous avez dix minutes.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="agences">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Pour les agences et les réseaux</div>
+      <h2>Formez toute votre équipe et suivez chaque agent</h2>
+      <p>Chaque agent dispose de son profil ; le manager suit la progression de l’équipe depuis un tableau de bord unique : scores par compétence, agents prêts pour le terrain, rapport individuel pour chacun. L’intégration des nouveaux devient un vrai entraînement, et vos meilleurs éléments restent affûtés, sans jamais risquer un vrai client.</p>
+    </div>
+    <div style="text-align:center"><a href="#devis" class="btn ghost">Demander un devis pour mon agence</a></div>
+  </div>
+</section>
+
+<section id="tarifs">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Acheter</div>
+      <h2>Choisissez votre accès</h2>
+      <p>Accès à vie aux niveaux achetés, avec 40 appels inclus au Niveau 1 et 40 rendez-vous inclus au Niveau 2.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card price-card">
+        <div class="tag">Agent ou mandataire</div>
+        <h3>Vous achetez pour vous</h3>
+        <p>Achetez votre accès directement dans l’application ARENA, avec un paiement sécurisé via Google Play.</p>
+        <ul>
+          <li>Niveau 1, Niveau 2, ou les deux en pack complet à prix avantageux</li>
+          <li>Accès lié à votre compte, sur tous vos appareils</li>
+          <li>Recharges d’appels disponibles à tout moment</li>
+        </ul>
+        <div class="actions">
+          <a href="https://play.google.com/store/apps/details?id=com.arenaforagents.app&amp;hl=fr" class="btn" target="_blank" rel="noopener">Télécharger sur Google Play</a>
+          <a href="#" class="btn ghost app-link">Entrer dans l’arène</a>
+        </div>
+      </div>
+      <div class="card price-card">
+        <div class="tag">Agence ou réseau</div>
+        <h3>Vous équipez votre équipe</h3>
+        <p>Achetez des places pour vos agents et pilotez leur progression depuis le tableau de bord manager.</p>
+        <ul>
+          <li>Codes d’accès groupés pour toute l’équipe</li>
+          <li>Remise dégressive selon le nombre de places</li>
+          <li>Facture au nom de votre société, avec n° de TVA intracommunautaire</li>
+        </ul>
+        <div class="actions">
+          <a href="#devis" class="btn">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+    <div class="guarantee">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+      <div>
+        <h3>Garantie 14 jours : satisfait ou remboursé</h3>
+        <p>Si vous <b>effectuez tous les appels et rendez-vous inclus</b> et que vous n’êtes toujours pas convaincu, nous vous remboursons <b>intégralement</b>, dans les 14 jours suivant votre achat.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="devis">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Devis agence</div>
+      <h2>Parlons de votre équipe</h2>
+      <p>Indiquez-nous la taille de votre équipe : nous vous répondons par e-mail sous 24 heures ouvrées, avec une proposition adaptée.</p>
+    </div>
+    <div class="msg-wrap card">
+      <div id="msgZona">
+        <form class="form-msg" id="formDevis" novalidate>
+          <div class="capcana"><label>Website</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <div class="rand-2">
+            <div class="camp"><label for="nume">Nom <span class="req">*</span></label><input type="text" id="nume" placeholder="Prénom et nom" autocomplete="name"></div>
+            <div class="camp"><label for="email">E-mail <span class="req">*</span></label><input type="email" id="email" placeholder="vous@agence.fr" autocomplete="email"></div>
+          </div>
+          <div class="rand-2">
+            <div class="camp"><label for="agentie">Agence ou réseau</label><input type="text" id="agentie" placeholder="Nom de l’agence" autocomplete="organization"></div>
+            <div class="camp"><label for="places">Nombre d’agents</label><input type="text" id="places" inputmode="numeric" placeholder="ex. 12"></div>
+          </div>
+          <div class="camp"><label for="mesaj">Votre message <span class="req">*</span></label><textarea id="mesaj" placeholder="Vos besoins, vos questions, le niveau qui vous intéresse…"></textarea></div>
+          <button type="submit" class="btn trimite" id="btnDevis">Envoyer ma demande</button>
+          <div class="form-eroare" id="eroareDevis"></div>
+          <p class="form-nota">Vos données servent uniquement à vous répondre.</p>
+        </form>
+      </div>
+      <div class="form-ok" id="msgOk">
+        <div class="ok-ico">✓</div>
+        <h3>Merci, votre demande est bien partie.</h3>
+        <p>Nous revenons vers vous par e-mail sous 24 heures ouvrées.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="band">
+      <div class="kicker">Prêt ?</div>
+      <h2>Entrez dans l’arène et entraînez-vous</h2>
+      <p>Votre premier appel et votre premier rendez-vous ne devraient pas se jouer face à un vrai propriétaire.</p>
+      <a href="#" class="btn app-link">Entrer dans l’arène</a> <a href="#tarifs" class="btn ghost">Acheter l’accès</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year"></span> ARENA for Agents. Tous droits réservés.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="#concept">Le concept</a>
+      <a href="#niveaux">Les niveaux</a>
+      <a href="#coach">Le coach</a>
+      <a href="#agences">Pour les agences</a>
+      <a href="#tarifs">Acheter</a>
+      <a href="#devis">Contact</a>
+    </div>
+    <div class="foot-social">
+      <span class="foot-mail">contact@arenaforagents.com</span>
+      <a href="https://www.linkedin.com/company/arenaforagents/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+<script>
+(function(){
+  var ENDPOINT = "https://arena-arena19.vercel.app/api/contact";
+  var form = document.getElementById('formDevis');
+  var btn  = document.getElementById('btnDevis');
+  var eroare = document.getElementById('eroareDevis');
+  function val(id){ var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  if (!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    eroare.textContent = '';
+    var nume = val('nume'), email = val('email'), mesaj = val('mesaj');
+    if (!nume || !(email.indexOf('@') > 0 && email.length > 4) || mesaj.length < 5) {
+      eroare.textContent = 'Merci d’indiquer votre nom, une adresse e-mail valide et votre message.';
+      return;
+    }
+    var places = val('places');
+    var c = {
+      nume: nume,
+      email: email,
+      telefon: '',
+      agentie: val('agentie'),
+      mesaj: '[FR · Devis agence]' + (places ? ' Nombre d’agents : ' + places + '.' : '') + '\n\n' + mesaj,
+      website: val('website')
+    };
+    btn.disabled = true; var eticheta = btn.textContent; btn.textContent = 'Envoi en cours…';
+    try {
+      var r = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(c) });
+      var j = await r.json().catch(function(){ return {}; });
+      if (r.ok && j.ok) {
+        document.getElementById('msgZona').style.display = 'none';
+        var ok = document.getElementById('msgOk'); ok.style.display = 'block';
+        ok.scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+      eroare.textContent = 'Une erreur est survenue. Merci de réessayer ou d’écrire à contact@arenaforagents.com.';
+    } catch (err) {
+      eroare.textContent = 'Envoi impossible. Vérifiez votre connexion et réessayez.';
+    }
+    btn.disabled = false; btn.textContent = eticheta;
+  });
+})();
+</script>
+
+</body></html>
