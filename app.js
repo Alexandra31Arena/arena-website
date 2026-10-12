@@ -319,3 +319,17 @@ document.querySelectorAll('.app-link').forEach(function(el){ el.setAttribute('hr
   }catch(e){}
 })();
 
+
+/* ===== Link „FR” (versiunea în franceză) în meniu, pe paginile RO și EN ===== */
+(function(){
+  try{
+    if (IS_FR) return;
+    var nav = document.querySelector('.nav-links');
+    if (!nav || nav.querySelector('a[href="/fr/"], a[href="../fr/"]')) return;
+    var a = document.createElement('a');
+    a.href = '/fr/';
+    a.title = 'Version française';
+    a.textContent = 'FR';
+    nav.appendChild(a);
+  }catch(e){}
+})();
