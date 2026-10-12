@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Request a demo · ARENA for Agents (UAE)</title>
+<meta name="description" content="Request a free ARENA demo for your brokerage in Dubai and across the Emirates: try the role-play simulator and see the manager dashboard." />
+<meta name="robots" content="noindex, follow" />
+<link rel="stylesheet" href="../style.css" />
+<style>
+.brand-wrap{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-icon{display:block;width:40px;height:40px;border-radius:10px}
+@media(max-width:560px){
+  .brand-wrap{gap:8px}
+  .brand-icon{width:32px;height:32px;border-radius:8px}
+  .nav-in{gap:10px;padding:12px 14px}
+  .nav-in > .btn{padding:9px 13px;font-size:12.5px;white-space:nowrap}
+}
+@media(max-width:380px){ .nav-in > .btn{display:none} }
+</style>
+<style>
+  .demo-wrap{max-width:600px;margin:0 auto}
+  .form-demo{display:grid;gap:16px;margin-top:4px}
+  .camp{display:flex;flex-direction:column;gap:6px}
+  .camp label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted,#a7b0c6);font-weight:600}
+  .camp label .req{color:var(--gold-3,#C9A227)}
+  .camp input{background:rgba(9,15,28,.55);border:1px solid rgba(255,255,255,.18);border-radius:12px;color:var(--text,#e8ecf6);padding:12px 14px;font-size:15px;font-family:inherit;width:100%;box-sizing:border-box}
+  .camp input:focus{outline:none;border-color:var(--gold-3,#C9A227);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+  .camp input::placeholder{color:#8f99b2}
+  .rand-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:520px){.rand-2{grid-template-columns:1fr}}
+  .btn.trimite{width:100%;justify-content:center;font-size:16px;padding:15px 22px;margin-top:6px;cursor:pointer;border:none}
+  .btn.trimite[disabled]{opacity:.6;cursor:default}
+  .form-nota{font-size:13px;color:var(--muted,#a7b0c6);text-align:center;margin-top:2px}
+  .form-eroare{color:#ff9d9d;font-size:14px;text-align:center;margin-top:4px}
+  .form-ok{text-align:center;padding:8px 0}
+  .form-ok .badge{font-size:44px;color:#8fd6a0;line-height:1}
+  .form-ok h3{margin:12px 0 8px}
+  .form-ok p{color:var(--muted,#a7b0c6);margin:0}
+</style>
+<link rel="canonical" href="https://www.arenaforagents.com/en/request-demo.html" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand-wrap">
+      <a href="index.html" aria-label="ARENA for Agents" style="display:flex"><img class="brand-icon" src="app-icon-128.png" alt="ARENA app icon" width="40" height="40"></a>
+      <a href="index.html" class="logo"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nl').classList.toggle('open')">☰</button>
+    <div class="nav-links" id="nl">
+      <a href="what-is.html">What is</a>
+      <a href="levels.html">Levels</a>
+      <a href="why-arena.html">Why ARENA</a>
+      <a href="for-agencies.html">For agencies</a>
+      <a href="pricing.html" class="nav-pricing">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="../" title="Versiunea în română">RO</a></div>
+    <a href="https://arena-arena19.vercel.app/?country=ae" class="btn app-link">Enter the arena</a>
+  </div>
+</nav>
+
+<main>
+<section class="page-hero">
+  <div class="wrap">
+    <div class="kicker">Free demo · For brokerages</div>
+    <h1>Request a demo</h1>
+    <p class="lead">Fill in the form and we'll email you a <b>demo code</b>, so you and your team can try ARENA and see the manager dashboard for yourselves. No card, no payment.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="card demo-wrap">
+      <div id="formZona">
+        <h3 class="ttl">Your details</h3>
+        <form class="form-demo" id="formDemo" novalidate>
+          <div class="camp">
+            <label for="agentie">Brokerage <span class="req">*</span></label>
+            <input id="agentie" name="agentie" type="text" autocomplete="organization" placeholder="Brokerage name" required />
+          </div>
+          <div class="rand-2">
+            <div class="camp">
+              <label for="persoana">Contact person <span class="req">*</span></label>
+              <input id="persoana" name="persoana" type="text" autocomplete="name" placeholder="Full name" required />
+            </div>
+            <div class="camp">
+              <label for="telefon">Phone <span class="req">*</span></label>
+              <input id="telefon" name="telefon" type="tel" autocomplete="tel" placeholder="+971 5x xxx xxxx" required />
+            </div>
+          </div>
+          <div class="camp">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@brokerage.ae" required />
+          </div>
+          <div class="rand-2">
+            <div class="camp">
+              <label for="oras">Emirate / city</label>
+              <input id="oras" name="oras" type="text" autocomplete="address-level2" placeholder="e.g. Dubai" />
+            </div>
+            <div class="camp">
+              <label for="nr_agenti">Number of agents</label>
+              <input id="nr_agenti" name="nr_agenti" type="text" inputmode="numeric" placeholder="e.g. 12" />
+            </div>
+          </div>
+          <button type="submit" class="btn trimite" id="btnTrimite">Send request</button>
+          <div class="form-eroare" id="eroare" role="alert"></div>
+          <p class="form-nota">We reply by email with your demo code as soon as we can.</p>
+        </form>
+      </div>
+      <div id="okZona" class="form-ok" style="display:none">
+        <div class="badge">✓</div>
+        <h3 class="ttl">Request sent</h3>
+        <p>We'll email your demo code to the address you gave us as soon as we can. Please check your spam folder too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="padding-top:6px">
+  <div class="wrap">
+    <div class="section-head"><div class="kicker">What the demo includes</div><h2>The real thing, not a video</h2></div>
+    <div class="card demo-wrap">
+      <ul style="list-style:none;margin:0;padding:0">
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span><b>Real conversations</b> with AI owners — on the phone and face to face.</li>
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span><b>Coach feedback</b> after every call: what worked and what to fix.</li>
+        <li style="position:relative;padding:0 0 12px 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span><b>The manager dashboard</b>, the way a team leader sees their agents.</li>
+        <li style="position:relative;padding:0 0 0 26px"><span style="position:absolute;left:0;color:var(--gold-3,#C9A227);font-weight:700">✓</span>Straight from the browser — <b>phone or laptop</b>, nothing to install.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <div>
+      <div class="logo" style="font-size:18px"><span class="bar">|</span><span class="word">ARENA</span><span class="bar">|</span></div>
+      <div style="margin-top:8px;font-size:13px">© <span id="year"></span> ARENA for Agents. All rights reserved.</div>
+    </div>
+    <div class="foot-nav">
+      <a href="what-is.html">What is</a>
+      <a href="levels.html">Levels</a>
+      <a href="why-arena.html">Why ARENA</a>
+      <a href="for-agencies.html">For agencies</a>
+      <a href="pricing.html" class="nav-pricing">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="foot-social">
+      <span class="foot-mail">contact@arenaforagents.com</span>
+      <a href="https://www.instagram.com/arenaforagents.uae/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61595209916558" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/company/arenaforagents/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var ENDPOINT="https://arena-arena19.vercel.app/api/cerere-demo?piata=ae";
+    var form=document.getElementById('formDemo'), btn=document.getElementById('btnTrimite'), eroare=document.getElementById('eroare');
+    var formZona=document.getElementById('formZona'), okZona=document.getElementById('okZona');
+    function val(id){var el=document.getElementById(id);return el?el.value.trim():'';}
+    if(!form) return;
+    form.addEventListener('submit',async function(e){
+      e.preventDefault(); eroare.textContent='';
+      var c={agentie:val('agentie'),persoana:val('persoana'),telefon:val('telefon'),email:val('email'),oras:val('oras'),nr_agenti:val('nr_agenti')};
+      if(!c.agentie||!c.persoana||!c.telefon||!(c.email.indexOf('@')>0&&c.email.length>4)){
+        eroare.textContent='Please fill in the brokerage, the contact person, the phone number and a valid email.'; return;
+      }
+      btn.disabled=true; var vechi=btn.textContent; btn.textContent='Sending…';
+      try{
+        var r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(c)});
+        var j=await r.json().catch(function(){return {};});
+        if(r.ok&&j.ok){ formZona.style.display='none'; okZona.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); return; }
+        eroare.textContent=(j&&j.mesaj)?j.mesaj:'Something went wrong. Please try again.';
+      }catch(err){ eroare.textContent='We could not send your request. Check your connection and try again.'; }
+      btn.disabled=false; btn.textContent=vechi;
+    });
+  })();
+</script>
+<script src="../app.js"></script>
+</body>
+</html>
