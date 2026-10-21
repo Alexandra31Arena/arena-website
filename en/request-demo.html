@@ -180,7 +180,7 @@ gtag('js',new Date());gtag('config','AW-18522192095');
       try{
         var r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(c)});
         var j=await r.json().catch(function(){return {};});
-        if(r.ok&&j.ok){ formZona.style.display='none'; okZona.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); return; }
+        if(r.ok&&j.ok){ try{ if(typeof gtag==='function') gtag('event','conversion',{'send_to':'AW-18522192095/NGYHCIDx_6QdEN_xiIBF'}); }catch(_){} formZona.style.display='none'; okZona.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); return; }
         eroare.textContent=(j&&j.mesaj)?j.mesaj:'Something went wrong. Please try again.';
       }catch(err){ eroare.textContent='We could not send your request. Check your connection and try again.'; }
       btn.disabled=false; btn.textContent=vechi;
