@@ -8,6 +8,29 @@
     var g=v==='granted'?'granted':'denied';
     gtag('consent','update',{ad_storage:g,ad_user_data:g,ad_personalization:g,analytics_storage:g});
   }
+  /* Linkul „apel gratuit” duce în aplicație (alt domeniu): îi trimitem acordul (c=1)
+     și codul clicului din reclamă (gclid), ca Google Ads să lege contul de probă de reclamă. */
+  var CK='arena_click';
+  function salveazaClic(){
+    try{
+      if(get()!=='granted')return;
+      var q=new URLSearchParams(location.search);
+      ['gclid','gbraid','wbraid'].forEach(function(k){ var v=q.get(k); if(v) localStorage.setItem(CK, JSON.stringify({k:k,v:v,t:Date.now()})); });
+    }catch(e){}
+  }
+  salveazaClic();
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="proba=1"]'); if(!a)return;
+    try{
+      var u=new URL(a.href);
+      if(get()==='granted'){
+        u.searchParams.set('c','1');
+        var cl=JSON.parse(localStorage.getItem(CK)||'null');
+        if(cl&&cl.v&&Date.now()-cl.t<90*864e5) u.searchParams.set(cl.k,cl.v);
+      }
+      a.href=u.toString();
+    }catch(err){}
+  },true);
   if(get())return;
   var lang=(document.documentElement.lang||'ro').slice(0,2);
   var T={
@@ -24,7 +47,7 @@
       '<div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap">'+
       '<button data-c="denied" style="cursor:pointer;background:transparent;color:#c3cbde;border:1px solid #2b3550;border-radius:10px;padding:8px 16px;font:inherit">'+T.r+'</button>'+
       '<button data-c="granted" style="cursor:pointer;background:linear-gradient(135deg,#FBE9B0,#C9A227);color:#0e1420;border:0;border-radius:10px;padding:8px 18px;font:inherit;font-weight:700">'+T.a+'</button></div>';
-    d.addEventListener('click',function(e){var v=e.target.getAttribute&&e.target.getAttribute('data-c');if(!v)return;set(v);apply(v);d.remove();});
+    d.addEventListener('click',function(e){var v=e.target.getAttribute&&e.target.getAttribute('data-c');if(!v)return;set(v);apply(v);salveazaClic();d.remove();});
     document.body.appendChild(d);
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',show);else show();
