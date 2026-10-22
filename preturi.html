@@ -551,7 +551,7 @@ gtag('js',new Date());gtag('config','AW-18522192095');
       cod_partener: state.promo || undefined,
       user_id: ctx.user_id || undefined,
       email: ctx.email || undefined,
-      success_url: successUrl("nou"),
+      success_url: successUrl(ctx.user_id ? "cont" : "nou"),
       cancel_url: cancelUrl()
     }, btn, "errAgent");
   }
@@ -696,6 +696,10 @@ gtag('js',new Date());gtag('config','AW-18522192095');
       sub = 'Plata a reușit. <b>Locurile noi au fost adăugate</b> pe agenția ta, pe același cod.';
       steps = '<li>Revino în <b>panoul de manager</b> — vezi noul total de locuri.</li>'+
               '<li>Trimite codul agenției agenților noi.</li>';
+    } else if(marca === "cont"){
+      sub = 'Plata a reușit. <b>Nivelul a fost deblocat</b> în contul tău, iar factura ți-a fost trimisă pe email.';
+      steps = '<li>Revino în <b>aplicație</b> — dacă nu vezi nivelul deblocat, ieși din cont și intră din nou.</li>'+
+              '<li>Toți cei 15 proprietari și cele 40 de apeluri te așteaptă.</li>';
     } else {
       sub = 'Plata a reușit. Ți-am creat contul și ți-am trimis pe <b>email</b> datele de logare și factura.';
       steps = '<li>Verifică <b>emailul</b> — găsești contul (setează-ți parola) și factura.</li>'+
