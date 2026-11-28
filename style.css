@@ -205,17 +205,31 @@ footer{flex-shrink:0;padding:46px 0 40px;border-top:1px solid rgba(255,255,255,.
 .foot-social{flex-wrap:wrap;row-gap:8px}
 
 /* ===== Hero split image (homepage) ===== */
-.hero-media{max-width:1040px;margin:8px auto 0;border-radius:20px;overflow:hidden;position:relative;
-  border:1px solid var(--border);box-shadow:0 30px 70px rgba(8,13,30,.42)}
-.hero-media img{display:block;width:100%;height:auto}
-.hero-media-caption{position:absolute;left:0;right:0;bottom:0;padding:22px 20px 20px;text-align:center;
-  background:linear-gradient(180deg,rgba(14,20,32,0) 0%,rgba(14,20,32,.88) 60%,rgba(14,20,32,.96) 100%)}
-.hero-media-caption .l1{display:block;color:#fff;font-size:17px;font-weight:600}
-.hero-media-caption .l2{display:block;font-family:Georgia,serif;font-size:21px;margin-top:2px;
+/* The photo dissolves into the page background instead of sitting in a hard-edged box:
+   a blurred, enlarged copy of the same image glows behind it (echoing its own colors
+   outward), and the sharp image on top fades out at its edges via a mask, so there is
+   no visible seam between "photo" and "page". */
+.hero-media{max-width:1100px;margin:18px auto 0;position:relative;padding:10px 0 0}
+.hero-media::before{
+  content:"";position:absolute;inset:-8% -6% 2%;
+  background-image:url(hero-split.jpg);
+  background-size:cover;background-position:center;
+  filter:blur(64px) saturate(1.35) brightness(.8);
+  opacity:.55;z-index:0}
+.hero-media img{position:relative;z-index:1;display:block;width:100%;height:auto;
+  max-width:1040px;margin:0 auto;
+  -webkit-mask-image:radial-gradient(ellipse 86% 84% at 50% 46%, #000 62%, rgba(0,0,0,.5) 80%, transparent 100%);
+  mask-image:radial-gradient(ellipse 86% 84% at 50% 46%, #000 62%, rgba(0,0,0,.5) 80%, transparent 100%);
+  filter:drop-shadow(0 22px 46px rgba(5,9,20,.4))}
+.hero-media-caption{position:relative;z-index:1;text-align:center;margin-top:-14px;padding:0 20px}
+.hero-media-caption .l1{display:block;color:#fff;font-size:17px;font-weight:600;
+  text-shadow:0 2px 10px rgba(5,9,20,.55)}
+.hero-media-caption .l2{display:block;font-family:Georgia,serif;font-size:22px;margin-top:3px;
   background:linear-gradient(180deg,var(--gold-1) 0%,var(--gold-2) 42%,var(--gold-3) 72%,var(--gold-4) 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 2px 8px rgba(5,9,20,.45))}
 @media(max-width:600px){
-  .hero-media{margin-top:4px;border-radius:14px}
+  .hero-media{margin-top:10px}
   .hero-media-caption .l1{font-size:14.5px}
   .hero-media-caption .l2{font-size:18px}
 }
