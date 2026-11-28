@@ -44,9 +44,15 @@
   </url>
   <url>
     <loc>https://www.arenaforagents.com/blog.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.arenaforagents.com/blog-motivul-real-vanzare.html</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.arenaforagents.com/blog-turul-casei.html</loc>
